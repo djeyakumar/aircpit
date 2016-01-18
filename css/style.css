@@ -881,7 +881,8 @@ h3.side-title-head {
 	    font-family: 'Varela Round', sans-serif;
 }
 .list_vertical {
-	margin:3em 0;
+	/*margin:3em 0;*/
+	margin: 0;
 }
 .side-bar-article img {
     width: 100%;
@@ -3558,4 +3559,18 @@ address a:hover {
 
 .logo {
 	padding-left: 15px;
+}
+
+div.errorMessage, span.required {
+	color: red;
+}
+
+.flash-success {
+	color: green;
+	font-size: 18px;
+	text-align: center;
+}
+
+.navbar-toggle {
+	margin-top: 10px;
 }

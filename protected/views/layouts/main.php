@@ -73,6 +73,7 @@
 							array('label'=>'Privacy Policy', 'url'=>array('/site/page', 'view'=>'policy')),
 							array('label'=>'Contact Us', 'url'=>array('/site/page', 'view'=>'contact')),
 							array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Signup', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 						),
 					)); ?>
@@ -180,7 +181,25 @@
 	</div>
 	<!-- content-section-starts-here -->
 	<div class="main-body">
-		<?php echo $content; ?>
+		<div class="wrap">
+			<div class="col-md-8 content-left">
+					<?php
+					    foreach(Yii::app()->user->getFlashes() as $key => $message) {
+					        echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+					    }
+					?>
+				<?php echo $content; ?>
+			</div>
+			<div class="col-md-4 side-bar">
+				<?php
+					$actionId = Yii::app()->controller->action->id;
+					if($actionId != 'login' && $actionId != 'registration') {
+						$this->renderPartial('pages/_right');
+					}
+				?>
+			</div>
+			<div class="clearfix"></div>
+		</div>
 	</div>
 	<!-- content-section-ends-here -->
 	<!-- footer-section-starts-here -->

@@ -1,53 +1,50 @@
 <?php
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
-
-$this->pageTitle=Yii::app()->name . ' - Login';
-$this->breadcrumbs=array(
-	'Login',
-);
+/* @var $this UserController */
+/* @var $model User */
+/* @var $form CActiveForm */
 ?>
 
-<h1>Login</h1>
-
-<p>Please fill out the following form with your login credentials:</p>
-
 <div class="form">
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'login-form',
-	'enableClientValidation'=>true,
-	'clientOptions'=>array(
-		'validateOnSubmit'=>true,
-	),
-)); ?>
+    <h2>Login</h2>
+    <?php $form=$this->beginWidget('CActiveForm', array(
+        'id'=>'user-registration-form',
+        // Please note: When you enable ajax validation, make sure the corresponding
+        // controller action is handling ajax validation correctly.
+        // See class documentation of CActiveForm for details on this,
+        // you need to use the performAjaxValidation()-method described there.
+        'enableAjaxValidation'=>false,
+        'focus'=>($model->hasErrors()) ? '.error:first' : array($model, 'firstname'),
+        'htmlOptions'=>array(
+            'class'=>'form-horizontal',
+        )
+    )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <!-- <p class="note">Fields with <span class="required">*</span> are required.</p> -->
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
+    <?php //echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
-		<p class="hint">
-			Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'username', array('class'=>'col-sm-offset-4 col-sm-4 text-right')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textField($model,'username', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'username'); ?>
+        </div>
+    </div>
 
-	<div class="row rememberMe">
-		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
-		<?php echo $form->error($model,'rememberMe'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'password', array('class'=>'col-sm-offset-4 col-sm-4 text-right')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->passwordField($model,'password', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'password'); ?>
+        </div>
+    </div>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
-	</div>
+    <div class="form-group"> 
+        <div class="col-sm-offset-8 col-sm-4">
+            <?php echo CHtml::submitButton('Login'); ?>
+        </div>
+    </div>
 
 <?php $this->endWidget(); ?>
+
 </div><!-- form -->
