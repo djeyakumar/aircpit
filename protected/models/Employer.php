@@ -1,14 +1,12 @@
 <?php
 
 /**
- * This is the model class for table "user".
+ * This is the model class for table "employer".
  *
- * The followings are the available columns in table 'user':
+ * The followings are the available columns in table 'employer':
  * @property integer $id
- * @property string $firstname
- * @property string $lastname
- * @property string $sex
- * @property integer $age
+ * @property string $companyname
+ * @property string $companydescription
  * @property string $username
  * @property string $password
  * @property string $email
@@ -18,15 +16,12 @@
  * @property integer $state
  * @property integer $district
  * @property string $city
- * @property string $experience
- * @property string $industry
- * @property string $functional_area
  * @property string $address1
  * @property string $address2
- * @property string $photo
- * @property string $biodata
+ * @property string $logo
+ * @property string $file
  */
-class User extends CActiveRecord
+class Employer extends CActiveRecord
 {
 	// holds the password confirmation word
     public $repeat_password;
@@ -39,7 +34,7 @@ class User extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'user';
+		return 'employer';
 	}
 
 	/**
@@ -50,21 +45,18 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('logo', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'safe' => false),
 			//password and repeat password
-			array('photo', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'safe' => false),
             array('password, repeat_password', 'required', 'on'=>'insert'),
             array('password, repeat_password', 'length', 'min'=>6, 'max'=>40),
             array('password', 'compare', 'compareAttribute'=>'repeat_password'),
-            array('username','unique', 'className' => 'User'),
 
-			array('firstname, sex, age, mobile, username, experience, industry, functional_area, address1', 'required'),
-			array('age, country, state, district', 'numerical', 'integerOnly'=>true),
-            array('firstname, lastname, username, password, email, mobile, telephone, city, experience, industry, functional_area, address1, address2, photo', 'length', 'max'=>255),
-            array('sex', 'length', 'max'=>1),
-            array('biodata', 'safe'),
+			array('companyname, companydescription, username, mobile, address1', 'required'),
+			array('companyname, username, password, email, mobile, telephone, city, address1, address2, logo', 'length', 'max'=>255),
+            array('file', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, firstname, lastname, sex, age, username, password, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, photo, biodata', 'safe', 'on'=>'search'),
+            array('id, companyname, companydescription, username, password, email, mobile, telephone, country, state, district, city, address1, address2, logo, file', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,10 +78,8 @@ class User extends CActiveRecord
 	{
 		return array(
             'id' => 'ID',
-            'firstname' => 'Firstname',
-            'lastname' => 'Lastname',
-            'sex' => 'Gender',
-            'age' => 'Age',
+            'companyname' => 'Companyname',
+            'companydescription' => 'Companydescription',
             'username' => 'Username',
             'password' => 'Password',
             'email' => 'Email',
@@ -99,13 +89,10 @@ class User extends CActiveRecord
             'state' => 'State',
             'city' => 'City',
             'district' => 'District',
-            'experience' => 'Experience',
-            'industry' => 'Category',
-            'functional_area' => 'Sub Category',
             'address1' => 'Address1',
             'address2' => 'Address2',
-            'photo' => 'Photo',
-            'biodata' => 'Biodata',
+            'logo' => 'Logo',
+            'file' => 'File',
         );
 	}
 
@@ -128,10 +115,8 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
         $criteria->compare('id',$this->id);
-        $criteria->compare('firstname',$this->firstname,true);
-        $criteria->compare('lastname',$this->lastname,true);
-        $criteria->compare('sex',$this->sex,true);
-        $criteria->compare('age',$this->age);
+        $criteria->compare('companyname',$this->companyname,true);
+        $criteria->compare('companydescription',$this->companydescription,true);
         $criteria->compare('username',$this->username,true);
         $criteria->compare('password',$this->password,true);
         $criteria->compare('email',$this->email,true);
@@ -141,13 +126,10 @@ class User extends CActiveRecord
         $criteria->compare('state',$this->state);
         $criteria->compare('district',$this->district);
         $criteria->compare('city',$this->city,true);
-        $criteria->compare('experience',$this->experience,true);
-        $criteria->compare('industry',$this->industry,true);
-        $criteria->compare('functional_area',$this->functional_area,true);
         $criteria->compare('address1',$this->address1,true);
         $criteria->compare('address2',$this->address2,true);
-        $criteria->compare('photo',$this->photo,true);
-        $criteria->compare('biodata',$this->biodata,true);
+        $criteria->compare('logo',$this->logo,true);
+        $criteria->compare('file',$this->file,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
@@ -158,7 +140,7 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return Employer the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

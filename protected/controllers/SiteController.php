@@ -98,6 +98,29 @@ class SiteController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
+	public function actionEmployerLogin()
+	{
+		$model=new LoginForm;
+		$model->userType = 'Employer';
+		// if it is ajax validation request
+		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+
+		// collect user input data
+		if(isset($_POST['LoginForm']))
+		{
+			$model->attributes=$_POST['LoginForm'];
+			// validate user input and redirect to the previous page if valid
+			if($model->validate() && $model->login())
+				$this->redirect(Yii::app()->user->returnUrl);
+		}
+		// display the login form
+		$this->render('employerLogin',array('model'=>$model));
+	}
+
 	public function actionRegistration()
     {
         $model=new User;
@@ -107,14 +130,88 @@ class SiteController extends Controller
 
         if(isset($_POST['User']))
         {
-            $model->attributes=$_POST['User'];
+            $model->attributes = $_POST['User'];
+            $model->photo = CUploadedFile::getInstance($model,'photo');
+
             if($model->save()) {
+            	if(!empty($model->photo)) {
+            		$model->photo->saveAs(Yii::app()->basePath.'/../photo/user/'.$model->photo);
+            	}
 				Yii::app()->user->setFlash('success', "Registration Successful !");
                 $this->redirect(array('login'));
             }
         }
 
         $this->render('registration',array(
+            'model'=>$model,
+        ));
+    }
+
+    public function actionProfile()
+    {
+    	$id = Yii::app()->user->id;
+    	if(Yii::app()->user->userType == 'User') {
+        	$model = User::model()->findByPk($id);
+        	$table = 'User';
+        	$img = 'photo';
+        	$renderPath = 'registration';
+        } else if(Yii::app()->user->userType == 'Employer') {
+        	$model = Employer::model()->findByPk($id);
+        	$table = 'Employer';
+        	$img = 'logo';
+        	$renderPath = 'employerRegistration';
+        }
+ 
+        if(isset($_POST[$table]))
+        {
+        	$_POST[$table][$img] = $model[$img];
+            $model->attributes=$_POST[$table];
+ 			$uploadedFile=CUploadedFile::getInstance($model, $img);
+ 
+            if($model->save())
+            {
+				if(!empty($uploadedFile)) {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../photo/'.strtolower(Yii::app()->user->userType).'/'.$uploadedFile->getName());
+                    $model[$img] = $uploadedFile->getName();
+                    $model->save(false);
+                }
+
+                Yii::app()->user->setFlash('success', "Profile Updated !");
+
+                $this->render($renderPath,array(
+		            'model'=>$model,
+		        ));
+		        Yii::app()->end();
+            }
+         }
+ 
+        $this->render($renderPath,array(
+            'model'=>$model,
+        ));
+    }
+
+    public function actionEmployerRegistration()
+    {
+        $model=new Employer;
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['Employer']))
+        {
+            $model->attributes=$_POST['Employer'];
+            $model->logo = CUploadedFile::getInstance($model,'logo');
+
+            if($model->save()) {
+            	if(!empty($model->logo)) {
+            		$model->logo->saveAs(Yii::app()->basePath.'/../photo/employer/'.$model->logo);
+            	}
+				Yii::app()->user->setFlash('success', "Registration Successful !");
+                $this->redirect(array('employerLogin'));
+            }
+        }
+
+        $this->render('employerRegistration',array(
             'model'=>$model,
         ));
     }
@@ -127,4 +224,5 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+
 }

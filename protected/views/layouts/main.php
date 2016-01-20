@@ -4,7 +4,7 @@
 <title>AIRCPIT - Online Jobs in railway department</title>
 <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
+
 <!-- Custom Theme files -->
 <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Custom Theme files -->
@@ -31,7 +31,8 @@
 		});
 	</script>
 	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/move-top.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/easing.js"></script>
+	<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/easing.js"></script>
+
 <!--/script-->
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
@@ -42,7 +43,7 @@
 	});
 
 	$(window).load(function(){
-        $('#myModal').modal('show');
+        //$('#myModal').modal('show');
     });
 </script>
 </head>
@@ -69,11 +70,12 @@
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
 							array('label'=>'Home', 'url'=>array('/site/index')),
-							array('label'=>'About Us', 'url'=>array('/site/page', 'view'=>'about')),
 							array('label'=>'Privacy Policy', 'url'=>array('/site/page', 'view'=>'policy')),
-							array('label'=>'Contact Us', 'url'=>array('/site/page', 'view'=>'contact')),
+							array('label'=>'Employer Login', 'url'=>array('/site/employerLogin'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Employer Registration', 'url'=>array('/site/employerRegistration'), 'visible'=>Yii::app()->user->isGuest),
 							array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Signup', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'Register', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),
+							array('label'=>'My Profile', 'url'=>array('/site/profile'), 'visible'=>!Yii::app()->user->isGuest),
 							array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 						),
 					)); ?>
@@ -106,51 +108,29 @@
 		
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav">
-								<li class="active"><a href="index.html">Home</a></li>
-								<li><a href="sports.html">Jobs</a></li>
-								<li><a href="shortcodes.html">Recruiters</a></li>
-								<li><a href="fashion.html">Companies</a></li>
+								<li class="active"><?php echo CHtml::link('Home',array('site/index')); ?></li>
+								<li><?php echo CHtml::link('About Us',array('site/page', 'view'=>'about')); ?></li>
+								<li><a href="#">Jobs</a></li>
+								<li><a href="#">Recruiters</a></li>
+								<li><a href="#">Companies</a></li>
 							    <li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<!--<b class="caret"></b></a>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services
+									<!--<b class="caret"></b></a>
 									<ul class="dropdown-menu">
 										<li><a href="entertainment.html">Movies</a></li>
 										<li class="divider"></li>
 									</ul>-->
 								</li>
-								<li class="dropdown">
-									<a href="business.html" class="dropdown-toggle" data-toggle="dropdown">Business<b class="caret"></b></a>
-									<ul class="dropdown-menu multi-column columns-2">
-										<div class="row">
-											<div class="col-sm-6">
-												<ul class="multi-column-dropdown">
-													<li><a href="business.html">Action</a></li>
-													<li class="divider"></li>
-													<li><a href="business.html">bulls</a></li>
-												    <li class="divider"></li>
-													<li><a href="business.html">markets</a></li>
-													<li class="divider"></li>
-													<li><a href="business.html">Reviews</a></li>
-													<li class="divider"></li>
-													<li><a href="shortcodes.html">Short codes</a></li>
-												</ul>
-											</div>
-											<div class="col-sm-6">
-												<ul class="multi-column-dropdown">
-												   <li><a href="business.html">features</a></li>	
-													<li class="divider"></li>
-													<li><a href="entertainment.html">Movies</a></li>
-												    <li class="divider"></li>
-													<li><a href="sports.html">sports</a></li>
-													<li class="divider"></li>
-													<li><a href="business.html">Reviews</a></li>
-													<li class="divider"></li>
-													<li><a href="business.html">Stock</a></li>
-												</ul>
-											</div>
-										</div>
-									</ul>
-								</li>
-								<li><a href="technology.html">Technology</a></li>
+								<?php if(Yii::app()->user->isGuest) : ?>
+									<li><?php echo CHtml::link('Login',array('site/login')); ?></li>
+									<li><?php echo CHtml::link('Register',array('site/registration')); ?></li>
+								<?php endif; ?>
+
+								<?php if(!Yii::app()->user->isGuest) : ?>
+									<?php if(Yii::app()->user->userType == 'Employer') : ?>
+										<li><?php echo CHtml::link('My Posts',array('post/index')); ?></li>
+									<?php endif; ?>
+								<?php endif; ?>
 								<div class="clearfix"></div>
 							</ul>
 						</div>
@@ -193,8 +173,11 @@
 			<div class="col-md-4 side-bar">
 				<?php
 					$actionId = Yii::app()->controller->action->id;
-					if($actionId != 'login' && $actionId != 'registration') {
-						$this->renderPartial('pages/_right');
+					if(Yii::app()->controller->id == 'site') {
+						if(	$actionId == 'index' || 
+							$actionId == 'page') {
+								$this->renderPartial('pages/_right');
+						}
 					}
 				?>
 			</div>
@@ -238,5 +221,9 @@
 	</script>
 <a href="#to-top" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 <!---->
+<?php
+	Yii::app()->clientScript->coreScriptPosition=CClientScript::POS_HEAD;
+	Yii::app()->clientScript->registerCoreScript('jquery');
+?>
 </body>
 </html>

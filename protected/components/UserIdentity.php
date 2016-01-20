@@ -16,11 +16,18 @@ class UserIdentity extends CUserIdentity
 	 * @return boolean whether authentication succeeds.
 	 */
 	private $_id;
+
+    public $userType = 'User';
  
     public function authenticate()
     {
         $username=strtolower($this->username);
-        $user=User::model()->find('LOWER(username)=?',array($username));
+        if($this->userType=='Employer') {
+            $user=Employer::model()->find('LOWER(username)=?',array($username));
+        } else {
+            $user=User::model()->find('LOWER(username)=?',array($username));
+        }
+
         if($user===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
         else if(!$user->hashPassword($this->password))
@@ -28,6 +35,7 @@ class UserIdentity extends CUserIdentity
         else
         {
             $this->_id=$user->id;
+            $this->setState('userType', $this->userType);
             $this->username=$user->username;
             $this->errorCode=self::ERROR_NONE;
         }
