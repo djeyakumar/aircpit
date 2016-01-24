@@ -1,47 +1,32 @@
-<?php
-/* @var $this PostController */
-/* @var $model Post */
+<div class="col-md-12 content-left">
 
-$this->breadcrumbs=array(
-	'Posts'=>array('index'),
-	$model->title,
-);
+	<h2>View Post #<?php echo $model->id; ?></h2>
 
-$this->menu=array(
-	array('label'=>'List Post', 'url'=>array('index')),
-	array('label'=>'Create Post', 'url'=>array('create')),
-	array('label'=>'Update Post', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Post', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Post', 'url'=>array('admin')),
-);
-?>
-
-<h1>View Post #<?php echo $model->id; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'title',
-		'description',
-		'employer_id',
-		'email',
-		'mobile',
-		'telephone',
-		'country',
-		'state',
-		'district',
-		'city',
-		'experience',
-		'industry',
-		'functional_area',
-		'address1',
-		'address2',
-		'file1',
-		'createdBy',
-		'createdDate',
-		'modifiedBy',
-		'modifiedDate',
-		'status',
-	),
-)); ?>
+	<?php $this->widget('zii.widgets.CDetailView', array(
+		'data'=>$model,
+		'attributes'=>array(
+			'id',
+			'title',
+			'description',
+			'employer_id',
+			'email',
+			'mobile',
+			'telephone',
+			'country',
+			'state',
+			'district',
+			'city',
+			'experience',
+			'industry',
+			'functional_area',
+			'address1',
+			'address2',
+			'file1',
+			'createdBy',
+			'createdDate',
+			'modifiedBy',
+			'modifiedDate',
+			'status',
+		),
+	)); ?>
+</div>

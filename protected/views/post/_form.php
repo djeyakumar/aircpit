@@ -5,149 +5,185 @@
 ?>
 
 <div class="form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'post-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
+	<?php $form=$this->beginWidget('CActiveForm', array(
+		'id'=>'post-form',
+		// Please note: When you enable ajax validation, make sure the corresponding
+		// controller action is handling ajax validation correctly.
+		// There is a call to performAjaxValidation() commented in generated controller code.
+		// See class documentation of CActiveForm for details on this.
+		'enableAjaxValidation'=>false,
+		'enableAjaxValidation'=>false,
+	        'focus'=>($model->hasErrors()) ? '.error:first' : array($model, 'title'),
+	        'htmlOptions'=>array(
+	            'class'=>'form-horizontal',
+	            'enctype' => 'multipart/form-data',
+	        )
+		)); 
+	?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'title'); ?>
-	</div>
+	<div class="form-group">
+        <?php echo $form->labelEx($model,'title', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textField($model,'title', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'title'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
+	<div class="form-group">
+        <?php echo $form->labelEx($model,'description', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php
+                $this->widget(
+                    'booster.widgets.TbCKEditor',
+                    array(
+                        'model'=>$model,
+                        'attribute'=>'description',
+                        'editorOptions' => array(
+                            'plugins' => 'basicstyles,toolbar,enterkey,entities,floatingspace,wysiwygarea,indentlist,link,list,dialog,dialogui,button,indent,fakeobjects'
+                        )
+                    )
+                );
+            ?>
+            <?php echo $form->error($model,'description'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'employer_id'); ?>
-		<?php echo $form->textField($model,'employer_id'); ?>
-		<?php echo $form->error($model,'employer_id'); ?>
-	</div>
+	<div class="form-group">
+        <?php echo $form->labelEx($model,'email', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textField($model,'email', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'email'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'mobile', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textField($model,'mobile', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'mobile'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'mobile'); ?>
-		<?php echo $form->textField($model,'mobile',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'mobile'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'telephone', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textField($model,'telephone', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'telephone'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'telephone'); ?>
-		<?php echo $form->textField($model,'telephone',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'telephone'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'country', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php $list = CHtml::listData(Countries::model()->findAll(array('order' => 'country')), 'id', 'country');?>
+            <?php echo $form->dropDownList($model, 'country', $list, array('class'=>'form-control','empty' => 'Select Country','style'=>'text-transform: capitalize'));?>
+            <?php echo $form->error($model,'country'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'country'); ?>
-		<?php echo $form->textField($model,'country'); ?>
-		<?php echo $form->error($model,'country'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'state', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php $list = CHtml::listData(States::model()->findAll(array('order' => 'state')), 'id', 'state');?>
+            <?php 
+                echo $form->dropDownList($model, 'state', $list, array(
+                    'class'=>'form-control',
+                    'empty' => 'Select State',
+                    'style'=>'text-transform: capitalize',
+                    'ajax' => array(
+                        'type'=>'POST',
+                        'url'=>$this->createUrl('districts', array('form'=>'Post')),
+                        'update'=>'#Post_district',
+                    )
+                ));
+            ?>
+            <?php echo $form->error($model,'state'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'state'); ?>
-		<?php echo $form->textField($model,'state'); ?>
-		<?php echo $form->error($model,'state'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'district', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->dropDownList($model, 'district', array(), array('class'=>'form-control','empty' => 'Select District','style'=>'text-transform: capitalize'));?>
+            <?php echo $form->error($model,'district'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'district'); ?>
-		<?php echo $form->textField($model,'district'); ?>
-		<?php echo $form->error($model,'district'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'city', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textField($model,'city', array('class'=>'form-control','style'=>'text-transform: capitalize')); ?>
+            <?php echo $form->error($model,'city'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'city'); ?>
-		<?php echo $form->textField($model,'city',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'city'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'experience', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->dropDownList($model, 'experience', $this->getExperienceList(), array('class'=>'form-control','empty' => 'Select Experience'));?>
+            <?php echo $form->error($model,'experience'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'experience'); ?>
-		<?php echo $form->textField($model,'experience',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'experience'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'industry', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php $list = CHtml::listData(Industries::model()->findAll(array('order' => 'industry')), 'id', 'industry');?>
+            <?php echo $form->dropDownList($model, 'industry', $list, array(
+                'class'=>'form-control', 
+                'empty' => 'Select Category',
+                'style'=>'text-transform: capitalize',
+                'ajax' => array(
+                    'type'=>'POST',
+                    'url'=>CController::createUrl('functionalAreas', array('form'=>'Post')),
+                    'update'=>'#Post_functional_area',
+                )
+            ));?>
+            <?php echo $form->error($model,'industry'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'industry'); ?>
-		<?php echo $form->textField($model,'industry',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'industry'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'functional_area', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->dropDownList($model, 'functional_area', array(), array('class'=>'form-control','empty' => 'Select Sub-Category','style'=>'text-transform: capitalize'));?>
+            <?php echo $form->error($model,'functional_area'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'functional_area'); ?>
-		<?php echo $form->textField($model,'functional_area',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'functional_area'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'address1', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textArea($model,'address1', array('rows'=>6, 'class'=>'form-control')); ?>
+            <?php echo $form->error($model,'address1'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'address1'); ?>
-		<?php echo $form->textField($model,'address1',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'address1'); ?>
-	</div>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'address2', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo $form->textArea($model,'address2', array('rows'=>6, 'class'=>'form-control')); ?>
+            <?php echo $form->error($model,'address2'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'address2'); ?>
-		<?php echo $form->textField($model,'address2',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'address2'); ?>
-	</div>
+	<div class="form-group">
+        <?php echo $form->labelEx($model,'file1', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-4">
+            <?php echo CHtml::activeFileField($model, 'file1', array('class'=>'col-sm-8')); ?>
+            <?php echo $form->error($model,'file1'); ?>
+        </div>
+    </div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'file1'); ?>
-		<?php echo $form->textField($model,'file1',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'file1'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'createdBy'); ?>
-		<?php echo $form->textField($model,'createdBy'); ?>
-		<?php echo $form->error($model,'createdBy'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'createdDate'); ?>
-		<?php echo $form->textField($model,'createdDate'); ?>
-		<?php echo $form->error($model,'createdDate'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'modifiedBy'); ?>
-		<?php echo $form->textField($model,'modifiedBy'); ?>
-		<?php echo $form->error($model,'modifiedBy'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'modifiedDate'); ?>
-		<?php echo $form->textField($model,'modifiedDate'); ?>
-		<?php echo $form->error($model,'modifiedDate'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status',array('size'=>1,'maxlength'=>1)); ?>
-		<?php echo $form->error($model,'status'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+	<div class="form-group"> 
+        <div class="col-sm-offset-4 col-sm-4">
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Update'); ?>
+        </div>
+    </div>
 
 <?php $this->endWidget(); ?>
 

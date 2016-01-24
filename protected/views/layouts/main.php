@@ -162,14 +162,12 @@
 	<!-- content-section-starts-here -->
 	<div class="main-body">
 		<div class="wrap">
-			<div class="col-md-8 content-left">
-					<?php
-					    foreach(Yii::app()->user->getFlashes() as $key => $message) {
-					        echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
-					    }
-					?>
+				<?php
+				    foreach(Yii::app()->user->getFlashes() as $key => $message) {
+				        echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+				    }
+				?>
 				<?php echo $content; ?>
-			</div>
 			<div class="col-md-4 side-bar">
 				<?php
 					$actionId = Yii::app()->controller->action->id;

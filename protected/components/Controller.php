@@ -33,7 +33,7 @@ class Controller extends CController
 	public function getExperienceList()
 	{
 		$expList = array();
-		for($i=0; $i<=10; $i++) {
+		for($i=0; $i<=40; $i++) {
 			$val = ($i>0) ? $i : 'Fresher';
 			$expList[] = $val;
 		}
@@ -51,7 +51,7 @@ class Controller extends CController
 
 	public function actionDistricts()
 	{
-	    $districts=Districts::model()->findAll('state_id=:state_id', array(':state_id'=>(int) $_POST['User']['state']));
+	    $districts=Districts::model()->findAll('state_id=:state_id', array(':state_id'=>(int) $_POST[$_GET['form']]['state']));
 	 
 	    $districts=CHtml::listData($districts,'id','district');
 	    echo CHtml::tag('option', array('value'=>''),CHtml::encode('Select District'),true);
@@ -63,7 +63,7 @@ class Controller extends CController
 
 	public function actionFunctionalAreas()
 	{
-		$industry = (int) $_POST['User']['industry'];
+		$industry = (int) $_POST[$_GET['form']]['industry'];
 		$functionalAreas = array();
 	    $functionalAreas_models=FunctionalAreas::model()->findAll();
 

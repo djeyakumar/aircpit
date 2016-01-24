@@ -11,7 +11,7 @@ return array(
 	'name'=>'My Web Application',
 
 	// preloading 'log' component
-	'preload'=>array('log'),
+	'preload'=>array('log', 'booster'),
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -45,6 +45,9 @@ return array(
 	        ),
 	      ),
 	    ),
+	    'booster' => array(
+		    'class' => 'ext.booster.components.Booster',
+		),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
