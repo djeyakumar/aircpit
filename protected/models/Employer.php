@@ -52,6 +52,7 @@ class Employer extends CActiveRecord
             array('password', 'compare', 'compareAttribute'=>'repeat_password'),
 
 			array('companyname, companydescription, username, mobile, address1', 'required'),
+            array('country, state, district', 'numerical', 'integerOnly'=>true),
 			array('companyname, username, password, email, mobile, telephone, city, address1, address2, logo', 'length', 'max'=>255),
             array('file', 'safe'),
             // The following rule is used by search().

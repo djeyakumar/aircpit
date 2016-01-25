@@ -21,7 +21,7 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
-	public $defaultAction = 'login';
+	//public $defaultAction = 'login';
 
 	public function getLocations()
 	{

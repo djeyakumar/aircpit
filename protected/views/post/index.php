@@ -28,6 +28,7 @@
 	                array('name'=>'industry', 'value'=>'$data->industry'),
 	                array('name'=>'functional_area', 'value'=>'$data->functional_area'),
 	                array('name'=>'city', 'value'=>'$data->city'),
+	                array('name'=>'file1', 'value'=>'CHtml::link($data->file1, Yii::app()->baseUrl."/admin/uploads/post/".$data->file1)', 'type'=>'raw'),
 	                array('name'=>'createdDate', 'value'=>'Yii::app()->dateFormatter->format("dd/MM/y",strtotime($data->createdDate))', 'filter'=>false),
 	            ),
 		    )

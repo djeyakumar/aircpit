@@ -91,5 +91,6 @@ return array(
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'rdjeyakumar@gmail.com',
+		'uploadPath'=>Yii::app()->basePath.'/../admin/uploads/',
 	),
 );

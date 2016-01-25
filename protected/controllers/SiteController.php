@@ -135,7 +135,7 @@ class SiteController extends Controller
 
             if($model->save()) {
             	if(!empty($model->photo)) {
-            		$model->photo->saveAs(Yii::app()->basePath.'/../photo/user/'.$model->photo);
+            		$model->photo->saveAs(Yii::app()->params['uploadPath'].'user/'.$model->photo);
             	}
 				Yii::app()->user->setFlash('success', "Registration Successful !");
                 $this->redirect(array('login'));
@@ -161,7 +161,7 @@ class SiteController extends Controller
         	$img = 'logo';
         	$renderPath = 'employerRegistration';
         }
- 
+
         if(isset($_POST[$table]))
         {
         	$_POST[$table][$img] = $model[$img];
@@ -171,7 +171,7 @@ class SiteController extends Controller
             if($model->save())
             {
 				if(!empty($uploadedFile)) {
-                    $uploadedFile->saveAs(Yii::app()->basePath.'/../photo/'.strtolower(Yii::app()->user->userType).'/'.$uploadedFile->getName());
+                    $uploadedFile->saveAs(Yii::app()->basePath.Yii::app()->params['uploadPath'].strtolower(Yii::app()->user->userType).'/'.$uploadedFile->getName());
                     $model[$img] = $uploadedFile->getName();
                     $model->save(false);
                 }
@@ -204,7 +204,7 @@ class SiteController extends Controller
 
             if($model->save()) {
             	if(!empty($model->logo)) {
-            		$model->logo->saveAs(Yii::app()->basePath.'/../photo/employer/'.$model->logo);
+            		$model->logo->saveAs(Yii::app()->basePath.Yii::app()->params['uploadPath'].'employer/'.$model->logo);
             	}
 				Yii::app()->user->setFlash('success', "Registration Successful !");
                 $this->redirect(array('employerLogin'));

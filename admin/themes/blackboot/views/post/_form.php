@@ -25,6 +25,15 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'employer_id', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-6">
+            <?php $list = CHtml::listData(Employer::model()->findAll(array('order' => 'username')), 'id', 'username');?>
+            <?php echo $form->dropDownList($model, 'employer_id', $list, array('class'=>'form-control','empty' => 'Select Employer','style'=>'text-transform: capitalize'));?>
+            <?php echo $form->error($model,'employer_id'); ?>
+        </div>
+    </div>
+
 	<div class="form-group">
         <?php echo $form->labelEx($model,'title', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
         <div class="col-sm-6">

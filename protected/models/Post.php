@@ -45,7 +45,9 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('file1', 'file', 'types'=>'jpg, gif, png, pdf, doc, docx, xls, xlsx', 'allowEmpty'=>true, 'safe' => false),
 			array('title, description, mobile, address1', 'required'),
+			array('country, state, district', 'numerical', 'integerOnly'=>true),
 			array('employer_id, country, state, district, createdBy, modifiedBy', 'numerical', 'integerOnly'=>true),
 			array('title, email, mobile, telephone, city, experience, industry, functional_area, address1, address2, file1', 'length', 'max'=>255),
 			array('status', 'length', 'max'=>1),
@@ -142,6 +144,21 @@ class Post extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	protected function beforeSave()
+	{
+        if($this->isNewRecord){
+            $this->createdBy = Yii::app()->user->id;
+            $this->createdDate = new CDbExpression('NOW()');
+        }else{
+            $this->modifiedBy=Yii::app()->user->id;
+            $this->modifiedDate = new CDbExpression('NOW()');
+        }
+
+        $this->employer_id=Yii::app()->user->id;
+
+		return parent::beforeSave();
 	}
 
 	/**

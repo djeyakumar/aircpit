@@ -29,7 +29,7 @@
         <div class="col-sm-6">
             <?php echo CHtml::activeFileField($model, 'logo', array('class'=>'col-sm-8')); ?>
             <?php if($model->logo) : ?>
-                <img src="<?='photo/employer/'.$model->logo?>?<?=rand(1,32000)?>"  class="img-responsive img-thumbnail" style="width:125px;height:auto;" />
+                <img src="<?='uploads/employer/'.$model->logo?>?<?=rand(1,32000)?>"  class="img-responsive img-thumbnail" style="width:125px;height:auto;" />
             <?php endif; ?>
             <?php echo $form->error($model,'logo'); ?>
         </div>

@@ -27,6 +27,11 @@ $this->menu=array(
 	        'template' => "{items}",
 	        'columns'=>array(
                 array('name'=>'id', 'value'=>'$data->id'),
+                array(
+		            'name'=>'photo',
+		            'type'=>'html',
+		            'value'=>'(!empty($data->photo))?CHtml::image(Yii::app()->request->baseUrl."/uploads/user/".$data->photo,"",array("style"=>"width:25px;height:25px;")):"no image"',
+		        ),
                 array('name'=>'firstname', 'value'=>'CHtml::link($data->firstname, Yii::app()->createUrl("user/update",array("id"=>$data->primaryKey)))', 'type'=>'raw'),
                 array('name'=>'lastname', 'value'=>'$data->lastname'),
                 array('name'=>'sex', 'value'=>'$data->sex'),

@@ -32,6 +32,12 @@ $this->menu=array(
                 array('name'=>'industry', 'value'=>'$data->industry'),
                 array('name'=>'functional_area', 'value'=>'$data->functional_area'),
                 array('name'=>'city', 'value'=>'$data->city'),
+                array('name'=>'file1', 'value'=>'CHtml::link($data->file1, Yii::app()->baseUrl."/uploads/post/".$data->file1)', 'type'=>'raw'),
+                array('name'=>'status', 
+                     'filter'=>array("A" => "Active","I" => "Inactive","D" => "Deleted"),
+                     'value'=>'($data->status == "A" ? "Active" : ($data->status == "I" ? "In-Active" : "Deleted"))',
+                     'htmlOptions'=>array('style'=>'width:100px;'),
+                ),
             ),
 	    )
 	);

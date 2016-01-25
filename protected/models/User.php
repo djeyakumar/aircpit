@@ -59,7 +59,7 @@ class User extends CActiveRecord
 
 			array('firstname, sex, age, mobile, username, experience, industry, functional_area, address1', 'required'),
 			array('age, country, state, district', 'numerical', 'integerOnly'=>true),
-            array('firstname, lastname, username, password, email, mobile, telephone, city, experience, industry, functional_area, address1, address2, photo', 'length', 'max'=>255),
+            array('firstname, lastname, username, password, email, mobile, telephone, city, experience, address1, address2, photo', 'length', 'max'=>255),
             array('sex', 'length', 'max'=>1),
             array('biodata', 'safe'),
             // The following rule is used by search().

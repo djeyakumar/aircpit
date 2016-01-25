@@ -18,30 +18,19 @@ $this->menu=array(
 
 <h1>View Post #<?php echo $model->id; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'title',
-		'description',
-		'employer_id',
-		'email',
-		'mobile',
-		'telephone',
-		'country',
-		'state',
-		'district',
-		'city',
-		'experience',
-		'industry',
-		'functional_area',
-		'address1',
-		'address2',
-		'file1',
-		'createdBy',
-		'createdDate',
-		'modifiedBy',
-		'modifiedDate',
-		'status',
-	),
-)); ?>
+<?php
+	$this->widget(
+	    'booster.widgets.TbDetailView',
+	    array(
+	        'data' => $model,
+	        'attributes' => array(
+	            array('name' => 'title', 'label' => 'Title'),
+	            array('name' => 'description', 'label' => 'Description'),
+	            array('name' => 'email', 'label' => 'Email'),
+	            array('name' => 'telephone', 'label' => 'Tel'),
+	            array('name' => 'mobile', 'label' => 'Mobile'),
+	            array('name' => 'address1', 'label' => 'Address'),
+	        ),
+	    )
+	);
+?>

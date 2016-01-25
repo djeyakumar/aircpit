@@ -70,8 +70,13 @@ class UserController extends Controller
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			if($model->save())
+			$model->photo = CUploadedFile::getInstance($model,'photo');
+			if($model->save()) {
+				if(!empty($model->photo)) {
+            		$model->photo->saveAs(Yii::app()->basePath.'/../uploads/'.'user/'.$model->photo);
+            	}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -93,9 +98,19 @@ class UserController extends Controller
 
 		if(isset($_POST['User']))
 		{
+			$_POST['User']['photo'] = $model['photo'];
 			$model->attributes=$_POST['User'];
-			if($model->save())
+			$uploadedFile=CUploadedFile::getInstance($model, 'photo');
+			if($model->save()) {
+				if(!empty($uploadedFile)) {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../uploads/'.'user/'.$uploadedFile->getName());
+                    $model['photo'] = $uploadedFile->getName();
+                    $model->save(false);
+                }
+
+                Yii::app()->user->setFlash('success', "Profile Updated !");
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

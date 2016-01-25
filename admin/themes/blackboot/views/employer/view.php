@@ -17,25 +17,19 @@ $this->menu=array(
 ?>
 
 <h1>View Employer #<?php echo $model->id; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'companyname',
-		'companydescription',
-		'username',
-		'password',
-		'email',
-		'mobile',
-		'telephone',
-		'country',
-		'state',
-		'district',
-		'city',
-		'address1',
-		'address2',
-		'logo',
-		'file',
-	),
-)); ?>
+<?php
+	$this->widget(
+	    'booster.widgets.TbDetailView',
+	    array(
+	        'data' => $model,
+	        'attributes' => array(
+	            array('name' => 'companyname', 'label' => 'Company name'),
+	            array('name' => 'companydescription', 'label' => 'Description'),
+	            array('name' => 'email', 'label' => 'Email'),
+	            array('name' => 'telephone', 'label' => 'Tel'),
+	            array('name' => 'mobile', 'label' => 'Mobile'),
+	            array('name' => 'address1', 'label' => 'Address'),
+	        ),
+	    )
+	);
+?>

@@ -32,7 +32,7 @@ class PostController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','districts','functionalAreas'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,8 +70,14 @@ class PostController extends Controller
 		if(isset($_POST['Post']))
 		{
 			$model->attributes=$_POST['Post'];
-			if($model->save())
+			$model->file1 = CUploadedFile::getInstance($model,'file1');
+			
+			if($model->save()) {
+				if(!empty($model->file1)) {
+            		$model->file1->saveAs(Yii::app()->basePath.'/../uploads/'.'post/'.$model->file1);
+            	}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -93,9 +99,19 @@ class PostController extends Controller
 
 		if(isset($_POST['Post']))
 		{
+			$_POST['Post']['file1'] = $model['file1'];
 			$model->attributes=$_POST['Post'];
-			if($model->save())
+			$uploadedFile=CUploadedFile::getInstance($model, 'file1');
+			if($model->save()) {
+				if(!empty($uploadedFile)) {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../uploads/'.'post/'.$uploadedFile->getName());
+                    $model['file1'] = $uploadedFile->getName();
+                    $model->save(false);
+                }
+
+                Yii::app()->user->setFlash('success', "Post Updated !");
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

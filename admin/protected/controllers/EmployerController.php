@@ -70,8 +70,13 @@ class EmployerController extends Controller
 		if(isset($_POST['Employer']))
 		{
 			$model->attributes=$_POST['Employer'];
-			if($model->save())
+			$model->logo = CUploadedFile::getInstance($model,'logo');
+			if($model->save()) {
+				if(!empty($model->logo)) {
+            		$model->logo->saveAs(Yii::app()->basePath.'/../uploads/'.'employer/'.$model->logo);
+            	}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -93,9 +98,19 @@ class EmployerController extends Controller
 
 		if(isset($_POST['Employer']))
 		{
+			$_POST['Employer']['logo'] = $model['logo'];
 			$model->attributes=$_POST['Employer'];
-			if($model->save())
+			$uploadedFile=CUploadedFile::getInstance($model, 'logo');
+			if($model->save()) {
+				if(!empty($uploadedFile)) {
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../uploads/'.'employer/'.$uploadedFile->getName());
+                    $model['logo'] = $uploadedFile->getName();
+                    $model->save(false);
+                }
+
+                Yii::app()->user->setFlash('success', "Profile Updated !");
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
