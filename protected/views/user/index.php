@@ -6,10 +6,6 @@ $this->breadcrumbs=array(
 	'Users',
 );
 
-$this->menu=array(
-	array('label'=>'Create User', 'url'=>array('create')),
-	array('label'=>'Manage User', 'url'=>array('admin')),
-);
 ?>
 
 <h1>Users</h1>
@@ -30,19 +26,16 @@ $this->menu=array(
                 array(
 		            'name'=>'photo',
 		            'type'=>'html',
-		            'value'=>'(!empty($data->photo))?CHtml::image(Yii::app()->request->baseUrl."/uploads/user/".$data->photo,"",array("style"=>"width:25px;height:25px;")):"no image"',
+		            'value'=>'(!empty($data->photo))?CHtml::image(Yii::app()->request->baseUrl."/admin/uploads/user/".$data->photo,"",array("style"=>"width:25px;height:25px;")):"no image"',
 		        ),
-                array('name'=>'firstname', 'value'=>'CHtml::link($data->firstname, Yii::app()->createUrl("user/update",array("id"=>$data->primaryKey)))', 'type'=>'raw'),
+                array('name'=>'firstname', 'value'=>'CHtml::link($data->firstname, Yii::app()->createUrl("user/view",array("id"=>$data->primaryKey)))', 'type'=>'raw'),
                 array('name'=>'lastname', 'value'=>'$data->lastname'),
                 array('name'=>'sex', 'value'=>'$data->sex'),
                 array('name'=>'age', 'value'=>'$data->age'),
-                array('name'=>'functional_area', 'value'=>'$data->functional_area'),
+                array('name'=>'experience', 'value'=>'$data->experience'),
+                array('name'=>'industry', 'value'=>'$data->industry1->industry'),
+                array('name'=>'functional_area', 'value'=>'$data->functional_area1->functional_area'),
                 array('name'=>'city', 'value'=>'$data->city'),
-                array(
-                    'class'=>'booster.widgets.TbButtonColumn',
-                    'template'=>'{update}{delete}',
-                    'afterDelete'=>'function(link,success,data){ if(success){ $("#statusMsg").html(data);} $("#delAlert").animate({opacity: 1.0}, 6000).fadeOut(); }',                
-                ),
             ),
 	    )
 	);

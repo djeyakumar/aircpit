@@ -40,7 +40,7 @@ return array(
 	      'packages'=>array(
 	        'jquery'=>array(
 	          'baseUrl'=>'js',
-	          'js'=>array('jquery.min.js'),
+	          'js'=>array('jquery.min.js','bootstrap.js'),
 	          'coreScriptPosition'=>CClientScript::POS_HEAD
 	        ),
 	      ),

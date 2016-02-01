@@ -1,6 +1,6 @@
 <?php
 
-class PostController extends Controller
+class UserController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,15 +28,15 @@ class PostController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','districts','functionalAreas', 'jobs'),
+				'actions'=>array('index','view','districts','functionalAreas', 'resumes'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','districts','functionalAreas', 'jobs'),
+				'actions'=>array('create','update','districts','functionalAreas', 'resumes'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','districts','functionalAreas', 'jobs'),
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -62,19 +62,18 @@ class PostController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Post;
+		$model=new User;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Post']))
+		if(isset($_POST['User']))
 		{
-			$model->attributes=$_POST['Post'];
-			$model->file1 = CUploadedFile::getInstance($model,'file1');
-
+			$model->attributes=$_POST['User'];
+			$model->photo = CUploadedFile::getInstance($model,'photo');
 			if($model->save()) {
-				if(!empty($model->file1)) {
-            		$model->file1->saveAs(Yii::app()->params['uploadPath'].'post/'.$model->file1);
+				if(!empty($model->photo)) {
+            		$model->photo->saveAs(Yii::app()->basePath.'/../uploads/'.'user/'.$model->photo);
             	}
 				$this->redirect(array('view','id'=>$model->id));
 			}
@@ -97,19 +96,19 @@ class PostController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Post']))
+		if(isset($_POST['User']))
 		{
-			$_POST['Post']['file1'] = $model['file1'];
-			$model->attributes=$_POST['Post'];
-			$uploadedFile=CUploadedFile::getInstance($model, 'file1');
+			$_POST['User']['photo'] = $model['photo'];
+			$model->attributes=$_POST['User'];
+			$uploadedFile=CUploadedFile::getInstance($model, 'photo');
 			if($model->save()) {
 				if(!empty($uploadedFile)) {
-                    $uploadedFile->saveAs(Yii::app()->params['uploadPath'].'post/'.$uploadedFile->getName());
-                    $model['file1'] = $uploadedFile->getName();
+                    $uploadedFile->saveAs(Yii::app()->basePath.'/../uploads/'.'user/'.$uploadedFile->getName());
+                    $model['photo'] = $uploadedFile->getName();
                     $model->save(false);
                 }
 
-                Yii::app()->user->setFlash('success', "Post Updated !");
+                Yii::app()->user->setFlash('success', "Profile Updated !");
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -138,7 +137,7 @@ class PostController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Post');
+		$dataProvider=new CActiveDataProvider('User');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -149,25 +148,25 @@ class PostController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Post('search');
+		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Post']))
-			$model->attributes=$_GET['Post'];
+		if(isset($_GET['User']))
+			$model->attributes=$_GET['User'];
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}
 
-	public function actionJobs()
+	public function actionResumes()
 	{
-		$model=new Post('search');
+		$model=new User('search');
 	    $model->unsetAttributes();  // clear any default values
-	    if(isset($_GET['Post']))
-	        $model->attributes=$_GET['Post'];
+	    if(isset($_GET['User']))
+	        $model->attributes=$_GET['User'];
 	 
 	    //send model object for search
-	    $this->render('jobs',array(
+	    $this->render('resumes',array(
 	        'dataProvider'=>$model->search(),
 	        'model'=>$model)
 	    );
@@ -177,12 +176,12 @@ class PostController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Post the loaded model
+	 * @return User the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Post::model()->findByPk($id);
+		$model=User::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -190,11 +189,11 @@ class PostController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Post $model the model to be validated
+	 * @param User $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='post-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

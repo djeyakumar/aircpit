@@ -6,13 +6,13 @@
 <div class="view">
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10 post">
-			<?php $img = ($data->employer) ? ($data->employer->logo ? $data->employer->logo : '') : '';?>
+			<?php $img = ($data->photo) ? $data->photo  : '';?>
 			<div class="col-sm-2">
-				<img src="<?='admin/uploads/employer/'.$img?>?<?=rand(1,32000)?>"  class="img-rounded" style="width: 140px; height: auto;" />
+				<img src="<?='admin/uploads/user/'.$img?>?<?=rand(1,32000)?>"  class="img-rounded" style="width: 140px; height: auto;" />
 			</div>
 			<div class="col-sm-6">
-				<h4><a href class="date"><?=$data->title?> <b>(<?=$data->experience?> yrs)</b></a></h4>
-				<p><?=$this->trimLongText($data->description, 250)?></p>
+				<h4><a href class="date"><?=$data->firstname?> <b>(<?=$data->experience?> yrs)</b></a></h4>
+				<p><?=$this->trimLongText($data->biodata, 250)?></p>
 				<p class="power">
 					<?php if(!empty($data->email)) : ?>
 						&nbsp;<i class='fa fa-envelope'></i> <?=$data->email?>
@@ -37,7 +37,6 @@
 				<p>
 					<b>Functional Area : </b><a class="date" href><?=($data->functional_area1) ? ($data->functional_area1->functional_area ? $data->functional_area1->functional_area : '') : '';?></a>
 				</p>
-				<p><b>File : </b> <?=CHtml::link($data->file1, Yii::app()->baseUrl."/uploads/post/".$data->file1)?>
 				<p>
 					<?php if(!empty($data->address1)) : ?>
 						<b>Address : </b><?=$data->address1?></p>

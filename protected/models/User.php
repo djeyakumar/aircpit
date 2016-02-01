@@ -76,6 +76,10 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'state1'=>array(self::BELONGS_TO, 'States', 'state'),
+            'district1'=>array(self::BELONGS_TO, 'Districts', 'district'),
+            'industry1'=>array(self::BELONGS_TO, 'Industries', 'industry'),
+            'functional_area1'=>array(self::BELONGS_TO, 'FunctionalAreas', 'functional_area'),
 		);
 	}
 

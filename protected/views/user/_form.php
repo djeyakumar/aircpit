@@ -1,67 +1,98 @@
 <?php
-/* @var $this PostController */
-/* @var $model Post */
+/* @var $this UserController */
+/* @var $model User */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
-	<?php $form=$this->beginWidget('CActiveForm', array(
-		'id'=>'post-form',
-		// Please note: When you enable ajax validation, make sure the corresponding
-		// controller action is handling ajax validation correctly.
-		// There is a call to performAjaxValidation() commented in generated controller code.
-		// See class documentation of CActiveForm for details on this.
-		'enableAjaxValidation'=>false,
-		'enableAjaxValidation'=>false,
-	        'focus'=>($model->hasErrors()) ? '.error:first' : array($model, 'title'),
-	        'htmlOptions'=>array(
-	            'class'=>'form-horizontal',
-	            'enctype' => 'multipart/form-data',
-	        )
-		)); 
-	?>
+<h2>Registration</h2>
+    <?php $form=$this->beginWidget('CActiveForm', array(
+        'id'=>'user-registration-form',
+        // Please note: When you enable ajax validation, make sure the corresponding
+        // controller action is handling ajax validation correctly.
+        // See class documentation of CActiveForm for details on this,
+        // you need to use the performAjaxValidation()-method described there.
+        'enableAjaxValidation'=>false,
+        'focus'=>($model->hasErrors()) ? '.error:first' : array($model, 'firstname'),
+        'htmlOptions'=>array(
+            'class'=>'form-horizontal',
+            'enctype' => 'multipart/form-data',
+        )
+    )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+    <?php //echo $form->errorSummary($model); ?>
 
     <div class="form-group">
-        <?php echo $form->labelEx($model,'employer_id', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <?php echo $form->labelEx($model,'photo', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
         <div class="col-sm-6">
-            <?php $list = CHtml::listData(Employer::model()->findAll(array('order' => 'username')), 'id', 'username');?>
-            <?php echo $form->dropDownList($model, 'employer_id', $list, array('class'=>'form-control','empty' => 'Select Employer','style'=>'text-transform: capitalize'));?>
-            <?php echo $form->error($model,'employer_id'); ?>
+            <?php echo CHtml::activeFileField($model, 'photo', array('class'=>'col-sm-8')); ?>
+            <?php if($model->photo) : ?>
+                <img src="<?='uploads/user/'.$model->photo?>?<?=rand(1,32000)?>" class="img-responsive img-thumbnail" style="width:125px;height:auto;" />
+            <?php endif; ?>
+            <?php echo $form->error($model,'photo'); ?>
         </div>
     </div>
 
-	<div class="form-group">
-        <?php echo $form->labelEx($model,'title', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'firstname', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
         <div class="col-sm-6">
-            <?php echo $form->textField($model,'title', array('class'=>'form-control')); ?>
-            <?php echo $form->error($model,'title'); ?>
+            <?php echo $form->textField($model,'firstname', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'firstname'); ?>
         </div>
     </div>
 
-	<div class="form-group">
-        <?php echo $form->labelEx($model,'description', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'lastname', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
         <div class="col-sm-6">
-            <?php
-                $this->widget(
-                    'booster.widgets.TbCKEditor',
-                    array(
-                        'model'=>$model,
-                        'attribute'=>'description',
-                        'editorOptions' => array(
-                            'plugins' => 'basicstyles,toolbar,enterkey,entities,floatingspace,wysiwygarea,indentlist,link,list,dialog,dialogui,button,indent,fakeobjects'
-                        )
-                    )
-                );
-            ?>
-            <?php echo $form->error($model,'description'); ?>
+            <?php echo $form->textField($model,'lastname', array('class'=>'form-control')); ?>
+            <?php echo $form->error($model,'lastname'); ?>
         </div>
     </div>
 
-	<div class="form-group">
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'sex', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-6">
+            <?php echo $form->dropDownList($model, 'sex', array('M'=>'Male','F'=>'Female'), array('class'=>'form-control','empty' => 'Select a Gender'));?>
+            <?php echo $form->error($model,'sex'); ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'age', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+        <div class="col-sm-6">
+            <?php echo $form->dropDownList($model, 'age', $this->getAgeList(), array('class'=>'form-control','empty' => 'Select Age'));?>
+            <?php echo $form->error($model,'age'); ?>
+        </div>
+    </div>
+    <?php if($model->isNewRecord) : ?>
+        <div class="form-group">
+            <?php echo $form->labelEx($model,'username', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+            <div class="col-sm-6">
+                <?php echo $form->textField($model,'username', array('class'=>'form-control')); ?>
+                <?php echo $form->error($model,'username'); ?>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <?php echo $form->labelEx($model,'password', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+            <div class="col-sm-6">
+                <?php echo $form->passwordField($model,'password', array('class'=>'form-control')); ?>
+                <?php echo $form->error($model,'password'); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <?php echo $form->labelEx($model,'repeat_password', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+            <div class="col-sm-6">
+                <?php echo $form->passwordField($model,'repeat_password', array('class'=>'form-control')); ?>
+                <?php echo $form->error($model,'repeat_password'); ?>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <div class="form-group">
         <?php echo $form->labelEx($model,'email', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
         <div class="col-sm-6">
             <?php echo $form->textField($model,'email', array('class'=>'form-control')); ?>
@@ -105,8 +136,8 @@
                     'style'=>'text-transform: capitalize',
                     'ajax' => array(
                         'type'=>'POST',
-                        'url'=>$this->createUrl('districts', array('form'=>'Post')),
-                        'update'=>'#Post_district',
+                        'url'=>CController::createUrl('districts', array('form'=>'User')),
+                        'update'=>'#User_district',
                     )
                 ));
             ?>
@@ -148,8 +179,8 @@
                 'style'=>'text-transform: capitalize',
                 'ajax' => array(
                     'type'=>'POST',
-                    'url'=>CController::createUrl('functionalAreas', array('form'=>'Post')),
-                    'update'=>'#Post_functional_area',
+                    'url'=>CController::createUrl('functionalAreas', array('form'=>'User')),
+                    'update'=>'#User_functional_area',
                 )
             ));?>
             <?php echo $form->error($model,'industry'); ?>
@@ -180,27 +211,29 @@
         </div>
     </div>
 
-	<div class="form-group">
-        <?php echo $form->labelEx($model,'file1', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+    <div class="form-group">
+        <?php echo $form->labelEx($model,'biodata', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
         <div class="col-sm-6">
-            <?php echo CHtml::activeFileField($model, 'file1', array('class'=>'col-sm-8')); ?>
-            <?php echo $form->error($model,'file1'); ?>
+            <?php
+                $this->widget(
+                    'booster.widgets.TbCKEditor',
+                    array(
+                        'model'=>$model,
+                        'attribute'=>'biodata',
+                        'editorOptions' => array(
+                            'plugins' => 'basicstyles,toolbar,enterkey,entities,floatingspace,wysiwygarea,indentlist,link,list,dialog,dialogui,button,indent,fakeobjects'
+                        )
+                    )
+                );
+            ?>
+            <?php echo $form->error($model,'biodata'); ?>
         </div>
     </div>
-    
-    <?php if(!$model->isNewRecord) : ?>
-        <div class="form-group">
-            <?php echo $form->labelEx($model,'status', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
-            <div class="col-sm-6">
-                <?php echo $form->dropDownList($model, 'status', array('A'=>'Active', 'I'=>'InActive', 'D'=>'Delete'), array('class'=>'form-control','empty' => 'Select Status','style'=>'text-transform: capitalize'));?>
-                <?php echo $form->error($model,'status'); ?>
-            </div>
-        </div>
-    <?php endif;?>
 
-	<div class="form-group"> 
+
+    <div class="form-group"> 
         <div class="col-sm-offset-4 col-sm-6">
-            <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Update'); ?>
+            <?php echo CHtml::submitButton($model->isNewRecord ? 'Register' : 'Update'); ?>
         </div>
     </div>
 

@@ -20,11 +20,11 @@ $this->pageTitle=Yii::app()->name . ' - Search Job';
 
 	<?php $form=$this->beginWidget('CActiveForm', array(
 		'id'=>'search-form',
-		'enableClientValidation'=>true,
+		'enableClientValidation'=>false,
 		'clientOptions'=>array(
-			'validateOnSubmit'=>true,
+			'validateOnSubmit'=>false,
 		),
-		'focus'=>($model->hasErrors()) ? '.error:first' : array($model, 'firstname'),
+		'focus'=>($model->hasErrors()) ? '.error:first' : array($model, 'industry'),
 	        'htmlOptions'=>array(
 	            'class'=>'form-inline',
 	            'enctype' => 'multipart/form-data',
@@ -43,8 +43,8 @@ $this->pageTitle=Yii::app()->name . ' - Search Job';
             'style'=>'text-transform: capitalize',
             'ajax' => array(
                 'type'=>'POST',
-                'url'=>CController::createUrl('functionalAreas', array('form'=>'Post')),
-                'update'=>'#Post_functional_area',
+                'url'=>CController::createUrl('functionalAreas', array('form'=>'User')),
+                'update'=>'#User_functional_area',
             )
         ));?>
         <?php echo $form->error($model,'industry'); ?>
@@ -72,8 +72,8 @@ $this->pageTitle=Yii::app()->name . ' - Search Job';
                 'style'=>'text-transform: capitalize',
                 'ajax' => array(
                     'type'=>'POST',
-                    'url'=>CController::createUrl('districts', array('form'=>'Post')),
-                    'update'=>'#Post_district',
+                    'url'=>CController::createUrl('districts', array('form'=>'User')),
+                    'update'=>'#User_district',
                 )
             ));
         ?>

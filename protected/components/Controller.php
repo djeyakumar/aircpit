@@ -81,4 +81,13 @@ class Controller extends CController
 	        echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 	    }
 	}
+
+	public function trimLongText($str, $limit)
+	{
+		$temp = $str;
+		if(strlen($str) > $limit & $limit > 15) {
+			$temp = substr($str, 0, ($limit-3))."...";
+		}
+		return $temp;
+	}
 }

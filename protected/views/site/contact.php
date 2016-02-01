@@ -38,7 +38,7 @@
 
     	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-    	<?php echo $form->errorSummary($model); ?>
+    	<?php //echo $form->errorSummary($model); ?>
 
     	<div class="form-group">
             <?php echo $form->labelEx($model,'name', array('class'=>'col-sm-offset-2 col-sm-2')); ?>

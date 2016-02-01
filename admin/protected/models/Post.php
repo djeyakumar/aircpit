@@ -29,6 +29,8 @@
  */
 class Post extends CActiveRecord
 {
+	public $employerSearch;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -55,7 +57,7 @@ class Post extends CActiveRecord
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, employer_id, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, file1, createdBy, createdDate, modifiedBy, modifiedDate, status', 'safe', 'on'=>'search'),
+			array('id, title, description, employer_id, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, file1, createdBy, createdDate, modifiedBy, modifiedDate, status, employerSearch', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +69,11 @@ class Post extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'employer'=>array(self::BELONGS_TO, 'Employer', 'employer_id'),
+			'state1'=>array(self::BELONGS_TO, 'States', 'state'),
+			'district1'=>array(self::BELONGS_TO, 'Districts', 'district'),
+			'industry1'=>array(self::BELONGS_TO, 'Industries', 'industry'),
+			'functional_area1'=>array(self::BELONGS_TO, 'FunctionalAreas', 'functional_area'),
 		);
 	}
 
@@ -98,6 +105,7 @@ class Post extends CActiveRecord
 			'modifiedBy' => 'Modified By',
 			'modifiedDate' => 'Modified Date',
 			'status' => 'Status',
+			'employerSearch' => 'Employer',
 		);
 	}
 
@@ -119,33 +127,64 @@ class Post extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('employer_id',$this->employer_id);
-		$criteria->compare('email',$this->email,true);
-		$criteria->compare('mobile',$this->mobile,true);
-		$criteria->compare('telephone',$this->telephone,true);
-		$criteria->compare('country',$this->country);
-		$criteria->compare('state',$this->state);
-		$criteria->compare('district',$this->district);
-		$criteria->compare('city',$this->city,true);
-		$criteria->compare('experience',$this->experience,true);
-		$criteria->compare('industry',$this->industry,true);
-		$criteria->compare('functional_area',$this->functional_area,true);
-		$criteria->compare('address1',$this->address1,true);
-		$criteria->compare('address2',$this->address2,true);
-		$criteria->compare('file1',$this->file1,true);
-		$criteria->compare('createdBy',$this->createdBy);
-		$criteria->compare('createdDate',$this->createdDate,true);
-		$criteria->compare('modifiedBy',$this->modifiedBy);
-		$criteria->compare('modifiedDate',$this->modifiedDate,true);
-		$criteria->compare('status',$this->status,true);
+		$criteria->with = array('employer');
 
-		return new CActiveDataProvider($this, array(
+		$criteria->compare('t.id',$this->id);
+		$criteria->compare('t.title',$this->title,true);
+		$criteria->compare('t.description',$this->description,true);
+		$criteria->compare('t.employer_id',$this->employer_id);
+		$criteria->compare('t.email',$this->email,true);
+		$criteria->compare('t.mobile',$this->mobile,true);
+		$criteria->compare('t.telephone',$this->telephone,true);
+		$criteria->compare('t.country',$this->country);
+		$criteria->compare('t.state',$this->state);
+		$criteria->compare('t.district',$this->district);
+		$criteria->compare('t.city',$this->city,true);
+		$criteria->compare('t.experience',$this->experience,true);
+		$criteria->compare('t.industry',$this->industry,true);
+		$criteria->compare('t.functional_area',$this->functional_area,true);
+		$criteria->compare('t.address1',$this->address1,true);
+		$criteria->compare('t.address2',$this->address2,true);
+		$criteria->compare('t.file1',$this->file1,true);
+		$criteria->compare('t.createdBy',$this->createdBy);
+		$criteria->compare('t.createdDate',$this->createdDate,true);
+		$criteria->compare('t.modifiedBy',$this->modifiedBy);
+		$criteria->compare('t.modifiedDate',$this->modifiedDate,true);
+		$criteria->compare('t.status',$this->status,true);
+
+		$criteria->compare('employer.companyname',$this->employerSearch,true);
+		/*return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-		));
+		));*/
+		return new CActiveDataProvider($this, array(
+            'criteria'=>$criteria,
+            'pagination' => array(
+	            'pageSize' => 5,
+	        ),
+		    'sort'=>array(
+		        'attributes'=>array(
+		            'employerSearch'=>array(
+		                'asc'=>'employer.companyname',
+		                'desc'=>'employer.companyname DESC',
+		            ),
+		            '*',
+		        ),
+		    ),
+        ));
 	}
+
+	public function beforeSave()
+    {	
+        if($this->isNewRecord){
+            $this->createdDate = new CDbExpression('NOW()');
+            $this->createdBy = Yii::app()->user->id;
+        }else{
+        	$this->modifiedBy=Yii::app()->user->id;
+            $this->modifiedDate = new CDbExpression('NOW()');
+        }
+
+        return parent::beforeSave();
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

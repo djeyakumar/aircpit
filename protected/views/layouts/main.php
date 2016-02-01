@@ -3,6 +3,7 @@
 <head>
 <title>AIRCPIT - Online Jobs in railway department</title>
 <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 <!-- Custom Theme files -->
@@ -13,7 +14,7 @@
 <meta name="keywords" content="Railway jobs, railway contract works, jobs in irctc, railway recruitment" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- for bootstrap working -->
-	<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
 <!-- //for bootstrap working -->
 <!-- web-fonts -->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -70,18 +71,12 @@
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
 							array('label'=>'Home', 'url'=>array('/site/index')),
-							array('label'=>'Privacy Policy', 'url'=>array('/site/page', 'view'=>'policy')),
-							array('label'=>'Employer Login', 'url'=>array('/site/employerLogin'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Employer Registration', 'url'=>array('/site/employerRegistration'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'Register', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest),
-							array('label'=>'My Profile', 'url'=>array('/site/profile'), 'visible'=>!Yii::app()->user->isGuest),
 							array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 						),
 					)); ?>
 				</div>
 				<div class="num">
-					<p> Call us : +91 8056 5461 32</p>
+					<p>Call us : +91 8056 5461 32 - (Visitors : <?=count(Visitor::model()->findAll())?>)</p>
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -110,27 +105,39 @@
 							<ul class="nav navbar-nav">
 								<li class="active"><?php echo CHtml::link('Home',array('site/index')); ?></li>
 								<li><?php echo CHtml::link('About Us',array('site/page', 'view'=>'about')); ?></li>
-								<li><a href="#">Jobs</a></li>
-								<li><a href="#">Recruiters</a></li>
+								<li><?php echo CHtml::link('Jobs',array('post/jobs')); ?></li>
+								<li><?php echo CHtml::link('Resumes',array('user/resumes')); ?></li>
 								<li><a href="#">Companies</a></li>
-							    <li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services
-									<!--<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="entertainment.html">Movies</a></li>
-										<li class="divider"></li>
-									</ul>-->
-								</li>
 								<?php if(Yii::app()->user->isGuest) : ?>
-									<li><?php echo CHtml::link('Login',array('site/login')); ?></li>
-									<li><?php echo CHtml::link('Register',array('site/registration')); ?></li>
-								<?php endif; ?>
+								    <li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seeker 
+										<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><?php echo CHtml::link('Login',array('site/login')); ?></li>
+											<li><?php echo CHtml::link('Register',array('site/registration')); ?></li>
+											<li class="divider"></li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Employer 
+										<b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><?php echo CHtml::link('Login',array('site/employerLogin')); ?></li>
+											<li><?php echo CHtml::link('Register',array('site/employerRegistration')); ?></li>
+											<li class="divider"></li>
+										</ul>
+									</li>
+								<?php else : ?>
+									<li><?php echo CHtml::link('My Profile', array('site/profile')); ?></li>
+								<?php endif;?>
+								
 
 								<?php if(!Yii::app()->user->isGuest) : ?>
 									<?php if(Yii::app()->user->userType == 'Employer') : ?>
 										<li><?php echo CHtml::link('My Posts',array('post/index')); ?></li>
 									<?php endif; ?>
 								<?php endif; ?>
+								<li><?php echo CHtml::link('Contact Us',array('site/contact')); ?></li>
 								<div class="clearfix"></div>
 							</ul>
 						</div>

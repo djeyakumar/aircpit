@@ -137,10 +137,18 @@ class PostController extends Controller
 	 * Lists all models.
 	 */
 	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Post');
+	{	
+		/*$dataProvider=new CActiveDataProvider('Post');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
+		));*/
+		$model=new Post('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Post']))
+			$model->attributes=$_GET['Post'];
+		
+		$this->render('index',array(
+			'model'=>$model,
 		));
 	}
 

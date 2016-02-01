@@ -24,7 +24,7 @@ $this->menu=array(
 	        'type' => 'striped',
 	        'dataProvider' => $dataProvider,
 	        'responsiveTable' => true,
-	        'template' => "{items}",
+	        'template' => "{items}{delete}",
 	        'columns'=>array(
                 array('name'=>'id', 'value'=>'$data->id'),
                 array(
@@ -39,6 +39,11 @@ $this->menu=array(
                 array('name'=>'mobile', 'value'=>'$data->mobile'),
                 array('name'=>'city', 'value'=>'$data->city'),
                 array('name'=>'address1', 'value'=>'$data->address1'),
+                array(
+                    'class'=>'booster.widgets.TbButtonColumn',
+                    'template'=>'{update}{delete}',
+                    'afterDelete'=>'function(link,success,data){ if(success){ $("#statusMsg").html(data);} $("#delAlert").animate({opacity: 1.0}, 6000).fadeOut(); }',                
+                ),
             ),
 	    )
 	);
