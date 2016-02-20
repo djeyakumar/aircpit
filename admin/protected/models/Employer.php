@@ -20,6 +20,7 @@
  * @property string $address2
  * @property string $logo
  * @property string $file
+ * @property string $status
  */
 class Employer extends CActiveRecord
 {
@@ -58,7 +59,7 @@ class Employer extends CActiveRecord
             array('file', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, companyname, companydescription, username, password, email, mobile, telephone, country, state, district, city, address1, address2, logo, file', 'safe', 'on'=>'search'),
+            array('id, companyname, companydescription, username, password, email, mobile, telephone, country, state, district, city, address1, address2, logo, file, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -95,6 +96,7 @@ class Employer extends CActiveRecord
             'address2' => 'Address2',
             'logo' => 'Logo',
             'file' => 'File',
+            'status' => 'Status',
         );
 	}
 
@@ -132,6 +134,7 @@ class Employer extends CActiveRecord
         $criteria->compare('address2',$this->address2,true);
         $criteria->compare('logo',$this->logo,true);
         $criteria->compare('file',$this->file,true);
+        $criteria->compare('status',$this->status,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
@@ -164,7 +167,13 @@ class Employer extends CActiveRecord
         // in this case, we will use the old hashed password.
         if(empty($this->password) && empty($this->repeat_password) && !empty($this->initialPassword))
             $this->password=$this->repeat_password=$this->initialPassword;
- 
+        
+        if($this->isNewRecord){
+            $this->createdDate = new CDbExpression('NOW()');
+        }else{
+            $this->modifiedDate = new CDbExpression('NOW()');
+        }
+
         return parent::beforeSave();
     }
  

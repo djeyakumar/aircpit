@@ -90,7 +90,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'rdjeyakumar@gmail.com',
+		'adminEmail'=>'pdhanash@gmail.com',
 		'uploadPath'=>Yii::app()->basePath.'/../admin/uploads/',
 	),
 );

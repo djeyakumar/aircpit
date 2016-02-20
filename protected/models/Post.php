@@ -38,6 +38,14 @@ class Post extends CActiveRecord
 		return 'posts';
 	}
 
+	public function defaultScope()
+    {
+        $alias = $this->getTableAlias(false,false).".";
+        return array(
+            'condition'=>$alias.'status = "A" ',
+        );
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -184,6 +192,28 @@ class Post extends CActiveRecord
 
 		return parent::beforeSave();
 	}
+
+	public function getLogo($thumb_op = 1)
+    {
+    	$width = 140;
+        switch ($thumb_op) {
+            case 2:
+                $width = 84;
+                break;
+            default:
+                $width = 140;
+                break;
+        }
+        $imgHtml = '<img src="admin/images/no-logo.png" class="img-rounded" style="width: '.$width.'px; height: auto;" />';
+        if($this->employer->logo) {
+            $img = "admin/uploads/employer/" . $this->employer->logo ;
+            if(!file_exists($img)) {
+                $img = "admin/images/no-logo.png";
+            }
+            $imgHtml = '<img src="' . $img . '"' . '?' . rand(1,32000) . ' class="img-rounded" style="width: '.$width.'px; height: auto;" />';
+        }
+        echo $imgHtml;
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.

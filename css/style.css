@@ -172,10 +172,10 @@ label{
 	border-radius: 5px;
 }
 .navbar-nav > li {
-	margin: 15px 35px 0 0;
+	margin: 10px 35px 0 0;
 }
 .navbar-nav>li>a {
-	padding: 0px;
+	padding: 5px;
 }
 .navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a.active {
 	color:#84754e;
@@ -3607,4 +3607,8 @@ div.errorMessage, span.required {
 
 h1, h2, h3, h4, h5, h6 {
 	color: #0E3F6A !important;
+}
+
+.post-text {
+	text-transform: capitalize;	
 }

@@ -25,6 +25,7 @@
  * @property string $address2
  * @property string $photo
  * @property string $biodata
+ * @property string $status
  */
 class User extends CActiveRecord
 {
@@ -64,7 +65,7 @@ class User extends CActiveRecord
             array('biodata', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, firstname, lastname, sex, age, username, password, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, photo, biodata', 'safe', 'on'=>'search'),
+            array('id, firstname, lastname, sex, age, username, password, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, photo, biodata, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -106,6 +107,7 @@ class User extends CActiveRecord
             'address2' => 'Address2',
             'photo' => 'Photo',
             'biodata' => 'Biodata',
+            'status' => 'Status',
         );
 	}
 
@@ -148,11 +150,25 @@ class User extends CActiveRecord
         $criteria->compare('address2',$this->address2,true);
         $criteria->compare('photo',$this->photo,true);
         $criteria->compare('biodata',$this->biodata,true);
+        $criteria->compare('status',$this->status,true);
 
         return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
         ));
 	}
+
+    public function getPhoto()
+    {
+        $imgHtml = '<img src="images/no-image.jpg" class="img-rounded" style="width: 140px; height: auto;" />';
+        if($this->photo) {
+            $img = "uploads/user/" . $this->photo ;
+            if(!file_exists($img)) {
+                $img = "images/no-image.jpg";
+            }
+            $imgHtml = '<img src="' . $img . '"' . '?' . rand(1,32000) . ' class="img-rounded" style="width: 140px; height: auto;" />';
+        }
+        echo $imgHtml;
+    }
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -180,7 +196,13 @@ class User extends CActiveRecord
         // in this case, we will use the old hashed password.
         if(empty($this->password) && empty($this->repeat_password) && !empty($this->initialPassword))
             $this->password=$this->repeat_password=$this->initialPassword;
- 
+        
+        if($this->isNewRecord){
+            $this->createdDate = new CDbExpression('NOW()');
+        }else{
+            $this->modifiedDate = new CDbExpression('NOW()');
+        }
+
         return parent::beforeSave();
     }
  

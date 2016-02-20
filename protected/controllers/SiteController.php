@@ -31,6 +31,7 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$visitor = new Visitor;
 		$visitor->ip_address = $this->getRealIp();
+
 		if($visitor->save())
 			$this->render('index');
 	}

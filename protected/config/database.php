@@ -2,16 +2,16 @@
 
 // This is the database connection configuration.
 	// Local
-	/*$host = 'localhost';
+	$host = 'localhost';
 	$dbname = 'aircpit';
 	$username = 'root';
-	$password = '';*/
+	$password = '';
 
 	// Server
-	$host = 'aircpit.db.12043759.hostedresource.com';
+	/*$host = 'aircpit.db.12043759.hostedresource.com';
 	$dbname = 'aircpit';
 	$username = 'aircpit';
-	$password = 'Test#123';
+	$password = 'Test#123';*/
 
 return array(
 	// 'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',

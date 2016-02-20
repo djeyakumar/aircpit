@@ -6,3 +6,20 @@ CREATE  TABLE `aircpit`.`visitors` (
   `modifiedBy` INT(11) NOT NULL ,
   `modifiedDate` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) );
+
+
+ALTER TABLE `aircpit`.`employer`
+ADD COLUMN `createdBy` INT(11) NOT NULL ,
+  ADD COLUMN `createdDate` DATETIME NOT NULL ,
+  ADD COLUMN  `modifiedBy` INT(11) NOT NULL ,
+  ADD COLUMN  `modifiedDate` DATETIME NOT NULL ,
+  ADD COLUMN  `status` ENUM('A','I','D') NOT NULL DEFAULT 'A' 
+  AFTER `file`;
+
+ALTER TABLE `aircpit`.`user`
+ADD COLUMN `createdBy` INT(11) NOT NULL ,
+  ADD COLUMN `createdDate` DATETIME NOT NULL ,
+  ADD COLUMN  `modifiedBy` INT(11) NOT NULL ,
+  ADD COLUMN  `modifiedDate` DATETIME NOT NULL ,
+  ADD COLUMN  `status` ENUM('A','I','D') NOT NULL DEFAULT 'A' 
+  AFTER `biodata`;

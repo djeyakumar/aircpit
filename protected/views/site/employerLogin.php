@@ -6,7 +6,7 @@
     ?>
 
     <div class="form">
-        <h2>Employer Login</h2>
+        <h2>Contractor Login</h2>
         <?php $form=$this->beginWidget('CActiveForm', array(
             'id'=>'user-registration-form',
             // Please note: When you enable ajax validation, make sure the corresponding

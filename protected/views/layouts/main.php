@@ -42,27 +42,51 @@
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
 		});
 	});
-
-	$(window).load(function(){
-        //$('#myModal').modal('show');
-    });
+	<?php if(Yii::app()->controller->id == "site" && Yii::app()->controller->action->id == "index") : ?>
+		$(window).load(function(){
+	        //$('#myModal').modal('show');
+	    });
+	<?php endif;?>
 </script>
 </head>
 <body>
 	<!-- Popup On load-->
 	<!-- Modal -->
 	<div id="myModal" class="modal fade" role="dialog">
-	  	<div class="modal-dialog">
+	  	<div class="modal-dialog" style="width: 1044px;">
 	        <div class="modal-content">
 		      	<div class="modal-header">
 		        	<button type="button" class="close" data-dismiss="modal">&times;</button>
 		      	</div>
 		      	<div class="modal-body">
-		        	<img src="images/happy-pongal.jpg" width="100%">
+		        	<!-- <img src="images/happy-pongal.jpg" width="100%"> -->
+		        	<img src="images/launch.jpg">
 		      	</div>
 	    	</div>
 	  	</div>
 	</div>
+	<?php
+		/*print_r('[');
+		foreach ($this->states as $state) {
+			print_r('<br>'.'{');
+			echo '"id": "'.$state->id.'",';
+			echo '"state": "'.$state->state.'",';
+			echo '"country_id": "'.$state->country_id.'"';
+			print_r('},');
+		}
+		print_r('<br>'.']');
+
+		print_r('[');
+		foreach ($this->districts as $district) {
+			print_r('<br>'.'{');
+			echo '"id": "'.$district->id.'",';
+			echo '"district": "'.$district->district.'",';
+			echo '"state_id": "'.$district->state_id.'"';
+			print_r('},');
+		}
+		print_r('<br>'.']');
+		exit();*/
+	?>
 	<!-- header-section-starts-here -->
 	<div class="header">
 		<div class="header-top">
@@ -83,7 +107,7 @@
 		</div>
 		<div class="header-bottom">
 			<div class="logo text-center">
-				<a href="index.html"><img src="images/logo1.png" alt="" /></a>
+				<a href><img src="images/logo1.png" alt="" /></a>
 				<!-- <img src="images/workers.jpg" height="100"> -->
 			</div>
 
@@ -102,44 +126,48 @@
 						<!--/.navbar-header-->
 		
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><?php echo CHtml::link('Home',array('site/index')); ?></li>
-								<li><?php echo CHtml::link('About Us',array('site/page', 'view'=>'about')); ?></li>
-								<li><?php echo CHtml::link('Jobs',array('post/jobs')); ?></li>
-								<li><?php echo CHtml::link('Resumes',array('user/resumes')); ?></li>
-								<li><a href="#">Companies</a></li>
-								<?php if(Yii::app()->user->isGuest) : ?>
-								    <li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Job Seeker 
-										<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li><?php echo CHtml::link('Login',array('site/login')); ?></li>
-											<li><?php echo CHtml::link('Register',array('site/registration')); ?></li>
-											<li class="divider"></li>
-										</ul>
-									</li>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Employer 
-										<b class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li><?php echo CHtml::link('Login',array('site/employerLogin')); ?></li>
-											<li><?php echo CHtml::link('Register',array('site/employerRegistration')); ?></li>
-											<li class="divider"></li>
-										</ul>
-									</li>
-								<?php else : ?>
-									<li><?php echo CHtml::link('My Profile', array('site/profile')); ?></li>
-								<?php endif;?>
-								
-
-								<?php if(!Yii::app()->user->isGuest) : ?>
-									<?php if(Yii::app()->user->userType == 'Employer') : ?>
-										<li><?php echo CHtml::link('My Posts',array('post/index')); ?></li>
-									<?php endif; ?>
-								<?php endif; ?>
-								<li><?php echo CHtml::link('Contact Us',array('site/contact')); ?></li>
-								<div class="clearfix"></div>
-							</ul>
+							<?php $this->widget('zii.widgets.CMenu',array(
+								'items'=>array(
+									array('label'=>'Home', 'url'=>array('/site/index')),
+									array('label'=>'About Us','url'=>array('site/page', 'view'=>'about')),
+									array('label'=>'Jobs','url'=>array('post/jobs')),
+									array('label'=>'Resumes','url'=>array('user/resumes')),
+									array('label'=>'Business','url'=>array('site/page', 'view'=>'business')),
+									array('label'=>'Payment Options','url'=>array('site/page', 'view'=>'payment_options')),
+									array(
+										'label' => 'Worker <b class="caret"></b>',
+                    					'url' => '#',
+                    					'visible'=>(Yii::app()->user->isGuest),
+                    					'linkOptions'=> array('class' => 'dropdown-toggle','data-toggle' => 'dropdown'),
+                    					'itemOptions' => array('class'=>'dropdown'),
+								      	'items'=>array(
+								        	array('label'=>'Login', 'url'=>array('/site/login')),
+								        	array('label'=>'Register', 'url'=>array('/site/registration')),
+								      	)
+								    ),
+								    array(
+										'label' => 'Contractor <b class="caret"></b>',
+                    					'url' => '#',
+                    					'visible'=>(Yii::app()->user->isGuest),
+                    					'linkOptions'=> array('class' => 'dropdown-toggle','data-toggle' => 'dropdown'),
+                    					'itemOptions' => array('class'=>'dropdown'),
+								      	'items'=>array(
+								        	array('label'=>'Login', 'url'=>array('/site/employerLogin')),
+								        	array('label'=>'Register', 'url'=>array('/site/employerRegistration')),
+								      	)
+								    ),
+									array('label'=>'My Profile','url'=>array('site/profile'),'visible'=>(!Yii::app()->user->isGuest)),
+									array('label'=>'My Posts','url'=>array('post/index'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->user->userType == 'Employer')),
+									array('label'=>'Contact Us','url'=>array('site/contact'))
+								),
+								'encodeLabel' => false,
+				                'htmlOptions' => array(
+				                    'class'=>'nav navbar-nav'
+				                ),
+				                'submenuHtmlOptions' => array(
+				                    'class' => 'dropdown-menu',
+				                )
+							)); ?>
 						</div>
 						<!--/.navbar-collapse-->
 	 				<!--/.navbar-->
@@ -199,11 +227,11 @@
 				</div>
 				<div class="footer-social-icons col-md-6">
 					<ul>
-						<li><a class="facebook" href="#"></a></li>
-						<li><a class="twitter" href="#"></a></li>
-						<li><a class="flickr" href="#"></a></li>
-						<li><a class="googleplus" href="#"></a></li>
-						<li><a class="dribbble" href="#"></a></li>
+						<li><a class="facebook" href></a></li>
+						<li><a class="twitter" href></a></li>
+						<li><a class="flickr" href></a></li>
+						<li><a class="googleplus" href></a></li>
+						<li><a class="dribbble" href></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"></div>

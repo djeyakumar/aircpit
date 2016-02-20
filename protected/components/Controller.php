@@ -22,6 +22,25 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
+	public $states = array();
+
+	public $districts = array();
+
+	public $functionalAreas_models = array();
+
+	public $latest_posts = array();
+
+	public $latest_resumes = array();
+
+	public function init()
+	{
+		$this->states = States::model()->findAll('country_id=:country_id', array(':country_id'=>1));
+		$this->districts = Districts::model()->findAll();
+		$this->functionalAreas_models=FunctionalAreas::model()->findAll();
+		$this->latest_posts = Post::model()->findAll(array('order'=>'id DESC', 'limit'=>5));
+		$this->latest_resumes = User::model()->findAll(array('order'=>'id DESC', 'limit'=>5));
+	}
+
 	public function getLocations()
 	{
 		$string = file_get_contents("js/cities.json");
@@ -44,15 +63,20 @@ class Controller extends CController
 	{
 		$ageList = array();
 		for($i=18; $i<=70; $i++) {
-			$ageList[] = $i;
+			$ageList[$i] = $i;
 		}
 		return $ageList;
 	}
 
 	public function actionDistricts()
 	{
-	    $districts=Districts::model()->findAll('state_id=:state_id', array(':state_id'=>(int) $_POST[$_GET['form']]['state']));
-	 
+	    //$districts=Districts::model()->findAll('state_id=:state_id', array(':state_id'=>(int) $_POST[$_GET['form']]['state']));
+	    $districts = array();
+	 	foreach ($this->districts as $district) {
+	 		if($district['state_id'] == (int) $_POST[$_GET['form']]['state']) {
+	 			$districts[] = $district;
+	 		}
+	 	}
 	    $districts=CHtml::listData($districts,'id','district');
 	    echo CHtml::tag('option', array('value'=>''),CHtml::encode('Select District'),true);
 	    foreach($districts as $value=>$name)
@@ -65,9 +89,9 @@ class Controller extends CController
 	{
 		$industry = (int) $_POST[$_GET['form']]['industry'];
 		$functionalAreas = array();
-	    $functionalAreas_models=FunctionalAreas::model()->findAll();
+	    //$functionalAreas_models=FunctionalAreas::model()->findAll();
 
-	    foreach ($functionalAreas_models as $functionalAreas_model) {
+	    foreach ($this->functionalAreas_models as $functionalAreas_model) {
 	    	$industries = explode(',', $functionalAreas_model->industries);
 	    	if(in_array($industry, $industries)) {
 	    		$functionalAreas[] = $functionalAreas_model;
@@ -90,4 +114,5 @@ class Controller extends CController
 		}
 		return $temp;
 	}
+
 }

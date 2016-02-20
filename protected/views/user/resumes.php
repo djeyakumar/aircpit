@@ -14,7 +14,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
  
-<h2>Jobs</h2>
+<h2>Resumes</h2>
 <p> 
 	<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 </p>

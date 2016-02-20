@@ -38,6 +38,11 @@ $this->menu=array(
                 array('name'=>'age', 'value'=>'$data->age'),
                 array('name'=>'functional_area', 'value'=>'$data->functional_area'),
                 array('name'=>'city', 'value'=>'$data->city'),
+                array('name'=>'status', 
+                     'filter'=>array("A" => "Active","I" => "Inactive","D" => "Deleted"),
+                     'value'=>'($data->status == "A" ? "Active" : ($data->status == "I" ? "In-Active" : "Deleted"))',
+                     'htmlOptions'=>array('style'=>'width:100px;'),
+                ),
                 array(
                     'class'=>'booster.widgets.TbButtonColumn',
                     'template'=>'{update}{delete}',

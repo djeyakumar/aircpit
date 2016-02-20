@@ -109,6 +109,19 @@ class Post extends CActiveRecord
 		);
 	}
 
+	public function getLogo()
+    {
+        $imgHtml = '<img src="images/no-logo.png" class="img-rounded" style="width: 140px; height: auto;" />';
+        if($this->employer->logo) {
+            $img = "uploads/employer/" . $this->employer->logo ;
+            if(!file_exists($img)) {
+                $img = "images/no-logo.png";
+            }
+            $imgHtml = '<img src="' . $img . '"' . '?' . rand(1,32000) . ' class="img-rounded" style="width: 140px; height: auto;" />';
+        }
+        echo $imgHtml;
+    }
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

@@ -174,6 +174,16 @@
         </div>
     </div>
 
+    <?php if(!$model->isNewRecord) : ?>
+        <div class="form-group">
+            <?php echo $form->labelEx($model,'status', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+            <div class="col-sm-6">
+                <?php echo $form->dropDownList($model, 'status', array('A'=>'Active', 'I'=>'InActive', 'D'=>'Delete'), array('class'=>'form-control','empty' => 'Select Status','style'=>'text-transform: capitalize'));?>
+                <?php echo $form->error($model,'status'); ?>
+            </div>
+        </div>
+    <?php endif;?>
+
     <div class="form-group"> 
         <div class="col-sm-offset-4 col-sm-6">
             <?php echo CHtml::submitButton($model->isNewRecord ? 'Register' : 'Update'); ?>
