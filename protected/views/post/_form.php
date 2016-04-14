@@ -188,3 +188,29 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<?php if(!$model->isNewRecord) : ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            type: 'POST',
+            data: {'Post[state]': $('#Post_state').val()},
+            url: "<?php echo CController::createUrl('districts', array('form'=>'Post')) ?>",
+            success: function(data){
+                $('#Post_district').html(data);
+                $('#Post_district').val("<?=$model->district;?>");
+            }
+        });
+
+        $.ajax({
+            type: 'POST',
+            data: {'Post[industry]': $('#Post_industry').val()},
+            url: "<?php echo CController::createUrl('functionalAreas', array('form'=>'Post')) ?>",
+            success: function(data){
+                $('#Post_functional_area').html(data);
+                $('#Post_functional_area').val("<?=$model->functional_area;?>");
+            }
+        });
+    });
+</script>
+<?php endif; ?>

@@ -38,6 +38,14 @@ class Employer extends CActiveRecord
 		return 'employer';
 	}
 
+    public function defaultScope()
+    {
+        $alias = $this->getTableAlias(false,false).".";
+        return array(
+            'condition'=>$alias.'status ="A"',
+        );
+    }
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */

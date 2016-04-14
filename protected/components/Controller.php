@@ -38,7 +38,7 @@ class Controller extends CController
 		$this->districts = Districts::model()->findAll();
 		$this->functionalAreas_models=FunctionalAreas::model()->findAll();
 		$this->latest_posts = Post::model()->findAll(array('order'=>'id DESC', 'limit'=>5));
-		$this->latest_resumes = User::model()->findAll(array('order'=>'id DESC', 'limit'=>5));
+		$this->latest_resumes = User::model()->findAllByAttributes(array('showOnSearch'=>'Y'), array('order'=>'id DESC', 'limit'=>5));
 	}
 
 	public function getLocations()

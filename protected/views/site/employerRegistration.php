@@ -1,7 +1,7 @@
 <div class="col-md-12 content-left">
     <?php
-    /* @var $this UserController */
-    /* @var $model User */
+    /* @var $this EmployerController */
+    /* @var $model Employer */
     /* @var $form CActiveForm */
     ?>
 
@@ -185,3 +185,19 @@
 
     </div><!-- form -->
 </div>
+
+<?php if(!$model->isNewRecord) : ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                type: 'POST',
+                data: {'Employer[state]': $('#Employer_state').val()},
+                url: "<?php echo CController::createUrl('districts', array('form'=>'Employer')) ?>",
+                success: function(data){
+                    $('#Employer_district').html(data);
+                    $('#Employer_district').val("<?=$model->district;?>");
+                }
+            });
+        });
+    </script>
+<?php endif; ?>

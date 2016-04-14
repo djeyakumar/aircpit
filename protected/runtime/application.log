@@ -337,3 +337,674 @@ in E:\projects\aircpit\index.php (13)
 2016/02/16 19:20:58 [warning] [application] Failed to set unsafe attribute "photo" of "User".
 in E:\projects\aircpit\protected\controllers\SiteController.php (172)
 in E:\projects\aircpit\index.php (13)
+2016/02/20 19:00:05 [error] [php] Undefined variable: form (E:\projects\aircpit\protected\views\site\registration.php:16)
+Stack trace:
+#0 E:\projects\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 E:\projects\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 E:\projects\aircpit\protected\controllers\SiteController.php(194): SiteController->render()
+#3 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionProfile()
+#4 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 E:\projects\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 E:\projects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 E:\projects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\projects\aircpit\index.php(13): CWebApplication->run()
+REQUEST_URI=/projects/aircpit/index.php?r=site/profile
+in E:\projects\aircpit\protected\views\site\registration.php (16)
+in E:\projects\aircpit\protected\controllers\SiteController.php (194)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 05:50:28 [error] [php] Undefined index: User (E:\projects\aircpit\protected\components\Controller.php:76)
+Stack trace:
+#0 E:\projects\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 E:\projects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 E:\projects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 E:\projects\aircpit\index.php(13): CWebApplication->run()
+REQUEST_URI=/projects/aircpit/index.php?r=site/districts&form=User
+in E:\projects\aircpit\protected\components\Controller.php (76)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 05:53:43 [error] [php] Undefined index: User (E:\projects\aircpit\protected\components\Controller.php:76)
+Stack trace:
+#0 E:\projects\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 E:\projects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 E:\projects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 E:\projects\aircpit\index.php(13): CWebApplication->run()
+REQUEST_URI=/projects/aircpit/index.php?r=site/districts&form=User
+in E:\projects\aircpit\protected\components\Controller.php (76)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 05:54:29 [error] [php] Undefined index: User (E:\projects\aircpit\protected\components\Controller.php:76)
+Stack trace:
+#0 E:\projects\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 E:\projects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 E:\projects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 E:\projects\aircpit\index.php(13): CWebApplication->run()
+REQUEST_URI=/projects/aircpit/index.php?r=site/districts&form=User
+in E:\projects\aircpit\protected\components\Controller.php (76)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 05:57:54 [error] [php] Undefined index: state (E:\projects\aircpit\protected\components\Controller.php:76)
+Stack trace:
+#0 E:\projects\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 E:\projects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 E:\projects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#5 E:\projects\aircpit\index.php(13): CWebApplication->run()
+REQUEST_URI=/projects/aircpit/index.php?r=site/districts&form=User
+in E:\projects\aircpit\protected\components\Controller.php (76)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 06:09:57 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 06:10:09 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 06:10:24 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 06:17:03 [error] [exception.CException] exception 'CException' with message 'Property "Employer.functional_area" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('functional_area')
+#1 E:\projects\aircpit\protected\views\site\employerRegistration.php(208): CActiveRecord->__get('functional_area')
+#2 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#3 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#4 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#5 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('employerRegistr...', Array, true)
+#6 E:\projects\aircpit\protected\controllers\SiteController.php(194): CController->render('employerRegistr...', Array)
+#7 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionProfile()
+#8 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('profile')
+#12 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/profile')
+#13 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 E:\projects\aircpit\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/profile
+HTTP_REFERER=http://localhost/projects/aircpit/index.php
+---
+2016/02/28 06:17:40 [warning] [application] Failed to set unsafe attribute "logo" of "Employer".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 06:20:13 [warning] [application] Failed to set unsafe attribute "file1" of "Post".
+in E:\projects\aircpit\protected\controllers\PostController.php (103)
+in E:\projects\aircpit\index.php (13)
+2016/02/28 06:21:12 [warning] [application] Failed to set unsafe attribute "file1" of "Post".
+in E:\projects\aircpit\protected\controllers\PostController.php (103)
+in E:\projects\aircpit\index.php (13)
+2016/03/02 16:23:49 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:24:19 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:24:20 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:24:21 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:24:21 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:24:40 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:24:47 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:25:27 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:25:51 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:26:50 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(282): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:28:44 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2151): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(962): CHtml::activeRadioButtonList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(283): CActiveForm->radioButtonList(Object(User), 'showOnSearch', Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/03/02 16:29:45 [error] [exception.CException] exception 'CException' with message 'Property "User.showOnSearch" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('showOnSearch')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('showOnSearch')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(1982): CHtml::resolveValue(Object(User), 'showOnSearch')
+#3 E:\projects\yii\framework\web\widgets\CActiveForm.php(914): CHtml::activeDropDownList(Object(User), 'showOnSearch', Array, Array)
+#4 E:\projects\aircpit\protected\views\site\registration.php(283): CActiveForm->dropDownList(Object(User), 'showOnSearch', Array, Array)
+#5 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#6 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#7 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#9 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#10 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#11 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#15 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#16 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#17 E:\projects\aircpit\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/
+---
+2016/04/14 17:10:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in E:\projects\yii\framework\db\CDbConnection.php:399
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 E:\projects\yii\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 E:\projects\yii\framework\base\CModule.php(394): CDbConnection->init()
+#3 E:\projects\yii\framework\base\CApplication.php(459): CModule->getComponent('db')
+#4 E:\projects\yii\framework\db\ar\CActiveRecord.php(637): CApplication->getDb()
+#5 E:\projects\yii\framework\db\ar\CActiveRecord.php(670): CActiveRecord->getDbConnection()
+#6 E:\projects\yii\framework\db\ar\CActiveRecord.php(1474): CActiveRecord->getCommandBuilder()
+#7 E:\projects\aircpit\protected\components\Controller.php(37): CActiveRecord->findAll('country_id=:cou...', Array)
+#8 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#9 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#10 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 E:\projects\aircpit\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/projects/aircpit/
+---
+2016/04/14 17:25:05 [error] [exception.CException] exception 'CException' with message 'Property "User.current_location" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('current_locatio...')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('current_locatio...')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(User), 'current_locatio...')
+#3 E:\projects\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(User), 'current_locatio...', Array)
+#4 E:\projects\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(User), 'current_locatio...', Array)
+#5 E:\projects\aircpit\protected\views\site\registration.php(85): CActiveForm->textField(Object(User), 'current_locatio...', Array)
+#6 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#7 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#9 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#10 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#11 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#12 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#16 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#17 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 E:\projects\aircpit\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/employerRegistration
+---
+2016/04/14 17:25:23 [error] [exception.CException] exception 'CException' with message 'Property "User.current_location" is not defined.' in E:\projects\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('current_locatio...')
+#1 E:\projects\yii\framework\web\helpers\CHtml.php(2729): CActiveRecord->__get('current_locatio...')
+#2 E:\projects\yii\framework\web\helpers\CHtml.php(2452): CHtml::resolveValue(Object(User), 'current_locatio...')
+#3 E:\projects\yii\framework\web\helpers\CHtml.php(1534): CHtml::activeInputField('text', Object(User), 'current_locatio...', Array)
+#4 E:\projects\yii\framework\web\widgets\CActiveForm.php(792): CHtml::activeTextField(Object(User), 'current_locatio...', Array)
+#5 E:\projects\aircpit\protected\views\site\registration.php(419): CActiveForm->textField(Object(User), 'current_locatio...', Array)
+#6 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#7 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#8 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#9 E:\projects\yii\framework\web\CController.php(782): CController->renderPartial('registration', Array, true)
+#10 E:\projects\aircpit\protected\controllers\SiteController.php(151): CController->render('registration', Array)
+#11 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#12 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('registration')
+#16 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/registrati...')
+#17 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 E:\projects\aircpit\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/employerRegistration
+---
+2016/04/14 18:12:23 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (137)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:12:23 [error] [php] move_uploaded_file(/../admin/uploads/user/tg_logo.png): failed to open stream: No such file or directory (E:\projects\yii\framework\web\CUploadedFile.php:201)
+Stack trace:
+#0 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegistration()
+#1 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 E:\projects\yii\framework\web\CController.php(286): SiteController->runAction()
+#3 E:\projects\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#4 E:\projects\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CWebApplication->run()
+REQUEST_URI=/projects/aircpit/index.php?r=site/registration
+in E:\projects\aircpit\protected\controllers\SiteController.php (142)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:13:13 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (137)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:13:34 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (137)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:13:45 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (137)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:13:45 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (137)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:14:49 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:14:55 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:15:09 [warning] [application] Failed to set unsafe attribute "photo" of "User".
+in E:\projects\aircpit\protected\controllers\SiteController.php (172)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:17:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'showOnSearch' in 'where clause'. The SQL statement executed was: SELECT `employer`.`id` AS `t1_c0`, `employer`.`companyname` AS `t1_c1`, `employer`.`companydescription` AS `t1_c2`, `employer`.`username` AS `t1_c3`, `employer`.`password` AS `t1_c4`, `employer`.`email` AS `t1_c5`, `employer`.`mobile` AS `t1_c6`, `employer`.`telephone` AS `t1_c7`, `employer`.`country` AS `t1_c8`, `employer`.`state` AS `t1_c9`, `employer`.`district` AS `t1_c10`, `employer`.`city` AS `t1_c11`, `employer`.`address1` AS `t1_c12`, `employer`.`address2` AS `t1_c13`, `employer`.`logo` AS `t1_c14`, `employer`.`file` AS `t1_c15`, `employer`.`status` AS `t1_c16`, `employer`.`createdBy` AS `t1_c17`, `employer`.`createdDate` AS `t1_c18`, `employer`.`modifiedBy` AS `t1_c19`, `employer`.`modifiedDate` AS `t1_c20` FROM `employer` `employer`  WHERE (employer.status ="A" AND showOnSearch = "Y") AND (`employer`.`id`=:ypl0).
+in E:\projects\aircpit\protected\models\Post.php (208)
+in E:\projects\aircpit\protected\views\site\_latest_posts.php (12)
+in E:\projects\aircpit\protected\views\site\pages\_right.php (5)
+2016/04/14 18:17:52 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'showOnSearch' in 'where clause'. The SQL statement executed was: SELECT `employer`.`id` AS `t1_c0`, `employer`.`companyname` AS `t1_c1`, `employer`.`companydescription` AS `t1_c2`, `employer`.`username` AS `t1_c3`, `employer`.`password` AS `t1_c4`, `employer`.`email` AS `t1_c5`, `employer`.`mobile` AS `t1_c6`, `employer`.`telephone` AS `t1_c7`, `employer`.`country` AS `t1_c8`, `employer`.`state` AS `t1_c9`, `employer`.`district` AS `t1_c10`, `employer`.`city` AS `t1_c11`, `employer`.`address1` AS `t1_c12`, `employer`.`address2` AS `t1_c13`, `employer`.`logo` AS `t1_c14`, `employer`.`file` AS `t1_c15`, `employer`.`status` AS `t1_c16`, `employer`.`createdBy` AS `t1_c17`, `employer`.`createdDate` AS `t1_c18`, `employer`.`modifiedBy` AS `t1_c19`, `employer`.`modifiedDate` AS `t1_c20` FROM `employer` `employer`  WHERE (employer.status ="A" AND showOnSearch = "Y") AND (`employer`.`id`=:ypl0)' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveFinder.php(808): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveFinder.php(509): CJoinElement->runQuery(Object(CJoinQuery))
+#3 E:\projects\yii\framework\db\ar\CActiveFinder.php(163): CJoinElement->lazyFind(Object(Post))
+#4 E:\projects\yii\framework\db\ar\CActiveRecord.php(281): CActiveFinder->lazyFind(Object(Post))
+#5 E:\projects\yii\framework\db\ar\CActiveRecord.php(143): CActiveRecord->getRelated('employer')
+#6 E:\projects\aircpit\protected\models\Post.php(208): CActiveRecord->__get('employer')
+#7 E:\projects\aircpit\protected\views\site\_latest_posts.php(12): Post->getLogo(2)
+#8 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#9 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', NULL, true)
+#10 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', NULL, true)
+#11 E:\projects\aircpit\protected\views\site\pages\_right.php(5): CController->renderPartial('_latest_posts')
+#12 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#13 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', NULL, true)
+#14 E:\projects\yii\framework\web\CController.php(869): CBaseController->renderFile('E:\\projects\\air...', NULL, true)
+#15 E:\projects\aircpit\protected\views\layouts\main.php(212): CController->renderPartial('pages/_right')
+#16 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#17 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#18 E:\projects\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#19 E:\projects\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#20 E:\projects\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#21 E:\projects\yii\framework\web\CBaseController.php(214): COutputProcessor->run()
+#22 E:\projects\yii\framework\web\CBaseController.php(308): CBaseController->endWidget('CContentDecorat...')
+#23 E:\projects\aircpit\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#24 E:\projects\yii\framework\web\CBaseController.php(126): require('E:\\projects\\air...')
+#25 E:\projects\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('E:\\projects\\air...', Array, true)
+#26 E:\projects\yii\framework\web\CController.php(784): CBaseController->renderFile('E:\\projects\\air...', Array, true)
+#27 E:\projects\aircpit\protected\controllers\SiteController.php(36): CController->render('index')
+#28 E:\projects\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#29 E:\projects\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#30 E:\projects\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#31 E:\projects\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#32 E:\projects\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#33 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#34 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#35 E:\projects\aircpit\index.php(13): CApplication->run()
+#36 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:25:33 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5.
+in E:\projects\aircpit\protected\components\Controller.php (41)
+in E:\projects\aircpit\index.php (13)
+2016/04/14 18:25:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showOnSearch = "Y" ORDER BY id DESC LIMIT 5' at line 1. The SQL statement executed was: SELECT * FROM `user` `t` WHERE t.status = "A" showOnSearch = "Y" ORDER BY id DESC LIMIT 5' in E:\projects\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 E:\projects\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 E:\projects\yii\framework\db\ar\CActiveRecord.php(1356): CDbCommand->queryAll()
+#2 E:\projects\yii\framework\db\ar\CActiveRecord.php(1475): CActiveRecord->query(Object(CDbCriteria), true)
+#3 E:\projects\aircpit\protected\components\Controller.php(41): CActiveRecord->findAll(Array)
+#4 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#5 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#6 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#7 E:\projects\aircpit\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---
+2016/04/14 18:31:07 [error] [exception.CException] exception 'CException' with message 'Post and its behaviors do not have a method or closure named "findAllBy".' in E:\projects\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 E:\projects\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('findAllBy', Array)
+#1 E:\projects\aircpit\protected\components\Controller.php(40): CActiveRecord->__call('findAllBy', Array)
+#2 E:\projects\aircpit\protected\components\Controller.php(40): Post->findAllBy(Array)
+#3 E:\projects\yii\framework\web\CWebApplication.php(281): Controller->init()
+#4 E:\projects\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index')
+#5 E:\projects\yii\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#6 E:\projects\aircpit\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/projects/aircpit/index.php?r=site/index
+HTTP_REFERER=http://localhost/projects/aircpit/index.php?r=site/profile
+---

@@ -25,7 +25,9 @@
  * @property string $address2
  * @property string $photo
  * @property string $biodata
+ * @property string $showOnSearch
  * @property string $status
+ * @property string $iagree
  */
 class User extends CActiveRecord
 {
@@ -60,20 +62,21 @@ class User extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			//password and repeat password
+            array('iagree', 'compare', 'compareValue' => true, 'message' => 'You must agree to the terms and conditions' ),
 			array('photo', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>true, 'safe' => false),
             array('password, repeat_password', 'required', 'on'=>'insert'),
             array('password, repeat_password', 'length', 'min'=>6, 'max'=>40),
             array('password', 'compare', 'compareAttribute'=>'repeat_password'),
             array('username','unique', 'className' => 'User'),
 
-			array('firstname, sex, age, mobile, username, experience, industry, functional_area, address1', 'required'),
+			array('firstname, sex, age, mobile, username, experience, industry, functional_area, address1, showOnSearch', 'required'),
 			array('age, country, state, district', 'numerical', 'integerOnly'=>true),
             array('firstname, lastname, username, password, email, mobile, telephone, city, experience, address1, address2, photo', 'length', 'max'=>255),
-            array('sex', 'length', 'max'=>1),
+            array('sex, showOnSearch, iagree', 'length', 'max'=>1),
             array('biodata', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, firstname, lastname, sex, age, username, password, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, photo, biodata, status', 'safe', 'on'=>'search'),
+            array('id, firstname, lastname, sex, age, username, password, email, mobile, telephone, country, state, district, city, experience, industry, functional_area, address1, address2, photo, biodata, showOnSearch, status, iagree', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -119,6 +122,7 @@ class User extends CActiveRecord
             'address2' => 'Address2',
             'photo' => 'Photo',
             'biodata' => 'Biodata',
+            'showOnSearch' => 'Show my profile on search',
             'status' => 'Status',
         );
 	}
@@ -162,6 +166,7 @@ class User extends CActiveRecord
         $criteria->compare('address2',$this->address2,true);
         $criteria->compare('photo',$this->photo,true);
         $criteria->compare('biodata',$this->biodata,true);
+        $criteria->compare('showOnSearch',$this->showOnSearch,true);
         $criteria->compare('status',$this->status,true);
 
         return new CActiveDataProvider($this, array(

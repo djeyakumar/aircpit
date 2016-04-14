@@ -59,7 +59,7 @@ label{
 }
 .num p {
     color: #dddddd;
-    font-size: 0.93em;
+    font-size: 16px;
     text-decoration: none;
     font-weight: 400;
     text-transform: capitalize;
@@ -172,7 +172,7 @@ label{
 	border-radius: 5px;
 }
 .navbar-nav > li {
-	margin: 10px 35px 0 0;
+	margin: 10px 25px 0 0;
 }
 .navbar-nav>li>a {
 	padding: 5px;
@@ -2385,10 +2385,12 @@ address a:hover {
 		font-size: 1.2em;
 	}
 	.about p,.privacy p {
-		font-size: 0.96em;
+		/*font-size: 0.96em;*/
+		font-size: 16px;
 	}
 	address {
-		font-size: 0.9em;
+		/*font-size: 0.9em;*/
+		font-size: 16px;
 	}
 	.blog-posts h3 {
 		font-size: 2.3em;

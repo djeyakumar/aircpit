@@ -128,14 +128,14 @@
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<?php $this->widget('zii.widgets.CMenu',array(
 								'items'=>array(
-									array('label'=>'Home', 'url'=>array('/site/index')),
-									array('label'=>'About Us','url'=>array('site/page', 'view'=>'about')),
-									array('label'=>'Jobs','url'=>array('post/jobs')),
-									array('label'=>'Resumes','url'=>array('user/resumes')),
-									array('label'=>'Business','url'=>array('site/page', 'view'=>'business')),
-									array('label'=>'Payment Options','url'=>array('site/page', 'view'=>'payment_options')),
+									array('label'=>'<i class="fa fa-home">&nbsp;</i>' . 'Home', 'url'=>array('/site/index')),
+									array('label'=>'<i class="fa fa-book">&nbsp;</i>' . 'About Us','url'=>array('site/page', 'view'=>'about')),
+									array('label'=>'<i class="fa fa-bank">&nbsp;</i>' . 'Jobs','url'=>array('post/jobs')),
+									array('label'=>'<i class="fa fa-newspaper-o">&nbsp;</i>' . 'Resumes','url'=>array('user/resumes')),
+									//array('label'=>'Business','url'=>array('site/page', 'view'=>'business')),
+									array('label'=>'<i class="fa fa-rupee">&nbsp;</i>' . 'Payment Options','url'=>array('site/page', 'view'=>'payment_options')),
 									array(
-										'label' => 'Worker <b class="caret"></b>',
+										'label' => '<i class="fa fa-user">&nbsp;</i>' . 'Worker <b class="caret"></b>',
                     					'url' => '#',
                     					'visible'=>(Yii::app()->user->isGuest),
                     					'linkOptions'=> array('class' => 'dropdown-toggle','data-toggle' => 'dropdown'),
@@ -146,7 +146,7 @@
 								      	)
 								    ),
 								    array(
-										'label' => 'Contractor <b class="caret"></b>',
+										'label' => '<i class="fa fa-user-secret">&nbsp;</i>' . 'Contractor <b class="caret"></b>',
                     					'url' => '#',
                     					'visible'=>(Yii::app()->user->isGuest),
                     					'linkOptions'=> array('class' => 'dropdown-toggle','data-toggle' => 'dropdown'),
@@ -156,9 +156,9 @@
 								        	array('label'=>'Register', 'url'=>array('/site/employerRegistration')),
 								      	)
 								    ),
-									array('label'=>'My Profile','url'=>array('site/profile'),'visible'=>(!Yii::app()->user->isGuest)),
-									array('label'=>'My Posts','url'=>array('post/index'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->user->userType == 'Employer')),
-									array('label'=>'Contact Us','url'=>array('site/contact'))
+									array('label'=>'<i class="fa fa-mortar-board">&nbsp;</i>' . 'My Profile','url'=>array('site/profile'),'visible'=>(!Yii::app()->user->isGuest)),
+									array('label'=>'<i class="fa fa-pencil-square-o">&nbsp;</i>' . 'My Posts','url'=>array('post/index'),'visible'=>(!Yii::app()->user->isGuest && Yii::app()->user->userType == 'Employer')),
+									array('label'=>'<i class="fa fa-phone">&nbsp;</i>' . 'Contact Us','url'=>array('site/contact'))
 								),
 								'encodeLabel' => false,
 				                'htmlOptions' => array(

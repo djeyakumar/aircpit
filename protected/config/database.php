@@ -8,10 +8,10 @@
 	$password = '';
 
 	// Server
-	/*$host = 'aircpit.db.12043759.hostedresource.com';
-	$dbname = 'aircpit';
-	$username = 'aircpit';
-	$password = 'Test#123';*/
+	// $host = 'aircpit.db.12043759.hostedresource.com';
+	// $dbname = 'aircpit';
+	// $username = 'aircpit';
+	// $password = 'Test#123';
 
 return array(
 	// 'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
