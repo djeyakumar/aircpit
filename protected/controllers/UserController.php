@@ -162,6 +162,7 @@ class UserController extends Controller
 	{
 		$model=new User('search');
 	    $model->unsetAttributes();  // clear any default values
+	    $model->showOnSearch = "Y";
 	    if(isset($_GET['User']))
 	        $model->attributes=$_GET['User'];
 	 

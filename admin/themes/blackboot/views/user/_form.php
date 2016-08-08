@@ -232,6 +232,14 @@
 
     <?php if(!$model->isNewRecord) : ?>
         <div class="form-group">
+            <?php echo $form->labelEx($model,'showOnSearch', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
+            <div class="col-sm-6">
+                <?php echo $form->dropDownList($model, 'showOnSearch', array('Y'=>'Yes', 'N'=>'No'), array('class'=>'form-control','empty' => 'Select Status','style'=>'text-transform: capitalize'));?>
+                <?php echo $form->error($model,'showOnSearch'); ?>
+            </div>
+        </div>
+
+        <div class="form-group">
             <?php echo $form->labelEx($model,'status', array('class'=>'col-sm-offset-2 col-sm-2')); ?>
             <div class="col-sm-6">
                 <?php echo $form->dropDownList($model, 'status', array('A'=>'Active', 'I'=>'InActive', 'D'=>'Delete'), array('class'=>'form-control','empty' => 'Select Status','style'=>'text-transform: capitalize'));?>
@@ -249,3 +257,29 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
+<?php if(!$model->isNewRecord) : ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $.ajax({
+                type: 'POST',
+                data: {'User[state]': $('#User_state').val()},
+                url: "<?php echo CController::createUrl('districts', array('form'=>'User')) ?>",
+                success: function(data){
+                    $('#User_district').html(data);
+                    $('#User_district').val("<?=$model->district;?>");
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                data: {'User[industry]': $('#User_industry').val()},
+                url: "<?php echo CController::createUrl('functionalAreas', array('form'=>'User')) ?>",
+                success: function(data){
+                    $('#User_functional_area').html(data);
+                    $('#User_functional_area').val("<?=$model->functional_area;?>");
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
